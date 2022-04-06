@@ -1,4 +1,4 @@
-.diff{
+.diff {
     height: 1000px;
     width: auto;
 }
@@ -16,12 +16,12 @@
 }
 
 .description {
-    position: relative; 
+    position: relative;
     align-items: center;
     text-align: center;
 }
 
-#TitreBoutique{
+#TitreBoutique {
     color: #022445;
 }
 
@@ -34,11 +34,12 @@ footer {
     background-color: #370617;
     color: white;
 }
+
 a {
     text-decoration: none;
 }
 
-.list-group>.btn {
+.list-group .btn {
     margin-bottom: 10px;
 }
 

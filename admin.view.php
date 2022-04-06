@@ -22,22 +22,36 @@
                 <h4>Catégories</h4>
 
 
-                <div class="list-group" id="list-tab" role="tablist">
-                    <button data-toggle="list" href="#categorie1" type="button" class="btn btn-outline-dark active">Joueurs</button>
-                    <button data-toggle="list" href="#categorie2" type="button" class="btn btn-outline-dark">Hommes</button>
+                <div class="list-group" id="list-tab">
+                    <button data-toggle="list" href="#categorie-1" type="button" class="btn btn-outline-dark active">Joueurs</button>
+                    <button data-toggle="list" href="#categorie-2" type="button" class="btn btn-outline-dark">Hommes</button>
+                    <button data-toggle="list" href="#categorie-3" type="button" class="btn btn-outline-dark">Femmes</button>
                 </div>
 
-
                 <h4>Sous-catégories</h4>
+                <div class="tab-content">
 
-                <div class="list-group" id="list-tab" role="tablist">
-
-                    <button data-toggle="list" href="#sous-categorie-1" type="button" class="btn btn-outline-secondary active">Sous-catégorie 1</button>
-                    <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn btn-outline-secondary">Sous-catégorie 2</button>
-
-                    <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn btn-outline-secondary">Sous-catégorie 3</button>
-                    <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn btn-outline-secondary">Sous-catégorie 4</button>
-
+                    <div id="categorie-1" class="tab-pane fade show active">
+                        <div class="list-group" id="list-tab2">
+                            <button data-toggle="list" href="#sous-categorie-1" type="button" class="btn btn-outline-secondary active">Sous-catégorie 1</button>
+                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn btn-outline-secondary">Sous-catégorie 2</button>
+                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn btn-outline-secondary">Sous-catégorie 2</button>
+                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn btn-outline-secondary">Sous-catégorie 2</button>
+                        </div>
+                    </div>
+                    <div id="categorie-2" class="tab-pane fade">
+                        <div class="list-group" id="list-tab3">
+                            <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn btn-outline-secondary">Sous-catégorie 3</button>
+                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn btn-outline-secondary">Sous-catégorie 4</button>
+                        </div>
+                    </div>
+                    <div id="categorie-3" class="tab-pane fade">
+                        <div class="list-group" id="list-tab3">
+                            <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn btn-outline-secondary">Sous-catégorie 3</button>
+                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn btn-outline-secondary">Sous-catégorie 4</button>
+                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn btn-outline-secondary">Sous-catégorie 4</button>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -50,7 +64,6 @@
                 <div class="tab-content">
 
                     <div id="sous-categorie-1" class="tab-pane fade show active">
-
                         <div class="admin-list-element">
                             <p>Premier élément</p>
                             <div class="boutons">
@@ -83,6 +96,46 @@
 
                         <div class="admin-list-element">
                             <p>Quatrième élément</p>
+                            <div class="boutons">
+                                <a href="" class="btn btn-outline-primary">Voir</a>
+                                <a href="" class="btn btn-outline-warning">Modifier</a>
+                                <a href="" class="btn btn-outline-danger">Supprimer</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sous-categorie-3" class="tab-pane fade">
+                        <div class="admin-list-element">
+                            <p>Quatrième élément</p>
+                            <div class="boutons">
+                                <a href="" class="btn btn-outline-primary">Voir</a>
+                                <a href="" class="btn btn-outline-warning">Modifier</a>
+                                <a href="" class="btn btn-outline-danger">Supprimer</a>
+                            </div>
+                        </div>
+
+                        <div class="admin-list-element">
+                            <p>Cinquième élément</p>
+                            <div class="boutons">
+                                <a href="" class="btn btn-outline-primary">Voir</a>
+                                <a href="" class="btn btn-outline-warning">Modifier</a>
+                                <a href="" class="btn btn-outline-danger">Supprimer</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sous-categorie-4" class="tab-pane fade">
+                        <div class="admin-list-element">
+                            <p>Sixième élément</p>
+                            <div class="boutons">
+                                <a href="" class="btn btn-outline-primary">Voir</a>
+                                <a href="" class="btn btn-outline-warning">Modifier</a>
+                                <a href="" class="btn btn-outline-danger">Supprimer</a>
+                            </div>
+                        </div>
+
+                        <div class="admin-list-element">
+                            <p>Septième élément</p>
                             <div class="boutons">
                                 <a href="" class="btn btn-outline-primary">Voir</a>
                                 <a href="" class="btn btn-outline-warning">Modifier</a>
