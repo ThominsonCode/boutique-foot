@@ -1,0 +1,36 @@
+.diff{
+    height: 1000px;
+    width: auto;
+}
+
+.red {
+    background-color: #9D0208;
+    width: auto;
+    height: 600px;
+}
+
+.maps {
+    background-color: white;
+    margin: 5%;
+    box-shadow: 10px 10px 0px 0px #022445;
+}
+
+.description {
+    position: relative; 
+    align-items: center;
+    text-align: center;
+}
+
+#TitreBoutique{
+    color: #022445;
+}
+
+footer {
+    background-color: #6A040F;
+}
+
+.copyright-section {
+    text-align: center;
+    background-color: #370617;
+    color: white;
+}
