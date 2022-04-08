@@ -1,7 +1,14 @@
-.diff {
+body {
+    background-image: url("Image/background.jpg");
+    background-size: cover;
+}
+
+/* .diff {
     height: 1000px;
     width: auto;
-}
+    background-image: url("Image/background.jpg");
+    background-size: cover;
+} */
 
 .red {
     background-color: #9D0208;

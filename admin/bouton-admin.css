@@ -31,7 +31,7 @@
     top: 0;
     height: 490%;
     width: 140%;
-    background: #78c7d2;
+    background: #D00000;
     -webkit-transition: all .5s ease-in-out;
     transition: all .2s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
@@ -45,9 +45,67 @@
 }
 
 .btn-admin:focus {
-    background: #78c7d2;
+    background: #D00000;
 }
 
 .liste-sous-categories button {
     text-transform: capitalize;
+}
+
+/* BOUTONS VOIR MODIFIER SUPPRIMER */
+
+
+
+.btn-voir {
+    display: inline-block;
+    background: white;
+    color: gray;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 30px;
+    padding: 7px 10px;
+}
+
+.btn-voir:hover {
+    background: gray;
+    color: white;
+    outline: none;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn-modifier {
+    display: inline-block;
+    background: white;
+    color: #FFBA08;
+    text-align: center;
+    border: 1px solid #FFBA08;
+    border-radius: 30px;
+    padding: 7px 10px;
+}
+
+.btn-modifier:hover {
+    background: #FFBA08;
+    color: gray;
+    outline: none;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.btn-supprimer {
+    display: inline-block;
+    background: white;
+    color: #D00000;
+    text-align: center;
+    border: 1px solid #D00000;
+    border-radius: 30px;
+    padding: 7px 10px;
+}
+
+.btn-supprimer:hover {
+    background: #D00000;
+    color: white;
+    outline: none;
+    text-decoration: none;
+    transition: .3s;
 }

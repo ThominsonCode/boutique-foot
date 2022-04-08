@@ -2,6 +2,8 @@
 
 body {
     font-family: 'Open Sans';
+    background-image: url("../Image/background.jpg");
+    background-size: cover;
 }
 
 .diff {
@@ -45,16 +47,12 @@ a {
     text-decoration: none;
 }
 
-.list-group .btn {
-    margin-bottom: 10px;
-}
-
 .admin-list-element {
     padding: 5px;
     display: flex;
     width: 100%;
     border: 1px solid lightgray;
-    border-radius: 5px;
+    /* border-radius: 30px; */
     align-items: center;
     justify-content: space-between;
     overflow: hidden;

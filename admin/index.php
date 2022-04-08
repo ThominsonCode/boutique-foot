@@ -71,18 +71,18 @@
                         <div class="admin-list-element">
                             <p>Premier élément</p>
                             <div class="boutons">
-                                <a href="" class="btn btn-outline-primary"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn btn-outline-warning"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>
                         </div>
 
                         <div class="admin-list-element">
                             <p>Second élément</p>
                             <div class="boutons">
-                                <a href="" class="btn btn-outline-primary"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn btn-outline-warning"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>
                         </div>
                     </div>
@@ -92,18 +92,18 @@
                         <div class="admin-list-element">
                             <p>Troisième élément</p>
                             <div class="boutons">
-                                <a href="" class="btn btn-outline-primary"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn btn-outline-warning"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>
                         </div>
 
                         <div class="admin-list-element">
                             <p>Quatrième élément</p>
                             <div class="boutons">
-                                <a href="" class="btn btn-outline-primary"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn btn-outline-warning"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>
                         </div>
                     </div>
@@ -112,18 +112,18 @@
                         <div class="admin-list-element">
                             <p>Quatrième élément</p>
                             <div class="boutons">
-                                <a href="" class="btn btn-outline-primary"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn btn-outline-warning"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>
                         </div>
 
                         <div class="admin-list-element">
                             <p>Cinquième élément</p>
                             <div class="boutons">
-                                <a href="" class="btn btn-outline-primary"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn btn-outline-warning"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>
                         </div>
                     </div>
@@ -132,18 +132,18 @@
                         <div class="admin-list-element">
                             <p>Sixième élément</p>
                             <div class="boutons">
-                                <a href="" class="btn btn-outline-primary"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn btn-outline-warning"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>
                         </div>
 
                         <div class="admin-list-element">
                             <p>Septième élément</p>
                             <div class="boutons">
-                                <a href="" class="btn btn-outline-primary"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn btn-outline-warning"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn btn-outline-danger"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>
                         </div>
                     </div>
