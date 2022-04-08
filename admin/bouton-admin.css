@@ -58,7 +58,7 @@
 
 .btn-voir {
     display: inline-block;
-    background: white;
+    background: rgba(255, 255, 255, 0.5);
     color: gray;
     text-align: center;
     border: 1px solid gray;
@@ -76,7 +76,7 @@
 
 .btn-modifier {
     display: inline-block;
-    background: white;
+    background: rgba(255, 255, 255, 0.6);
     color: #FFBA08;
     text-align: center;
     border: 1px solid #FFBA08;
@@ -86,7 +86,7 @@
 
 .btn-modifier:hover {
     background: #FFBA08;
-    color: gray;
+    color: white;
     outline: none;
     text-decoration: none;
     transition: .3s;
@@ -94,7 +94,7 @@
 
 .btn-supprimer {
     display: inline-block;
-    background: white;
+    background: rgba(255, 255, 255, 0.5);
     color: #D00000;
     text-align: center;
     border: 1px solid #D00000;

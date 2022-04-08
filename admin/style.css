@@ -6,58 +6,22 @@ body {
     background-size: cover;
 }
 
-.diff {
-    height: 1000px;
-    width: auto;
-}
-
-.red {
-    background-color: #9D0208;
-    width: auto;
-    height: 600px;
-}
-
-.maps {
-    background-color: white;
-    margin: 5%;
-    box-shadow: 10px 10px 0px 0px #022445;
-}
-
-.description {
-    position: relative;
-    align-items: center;
-    text-align: center;
-}
-
-#TitreBoutique {
-    color: #022445;
-}
-
-footer {
-    background-color: #6A040F;
-}
-
-.copyright-section {
-    text-align: center;
-    background-color: #370617;
-    color: white;
-}
-
 a {
     text-decoration: none;
 }
 
 .admin-list-element {
-    padding: 5px;
+    padding: 5px 10px;
     display: flex;
     width: 100%;
     border: 1px solid lightgray;
-    /* border-radius: 30px; */
+    border-radius: 3px;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
     align-items: center;
     margin-bottom: 10px;
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .admin-list-element>p {
