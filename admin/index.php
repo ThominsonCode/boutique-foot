@@ -27,33 +27,33 @@
 
 
                 <div class="list-group" id="list-tab">
-                    <button data-toggle="list" href="#categorie-1" type="button" class="btn btn-admin active"><span>Joueurs</span></button>
-                    <button data-toggle="list" href="#categorie-2" type="button" class="btn btn-admin"><span>Hommes</span></button>
-                    <button data-toggle="list" href="#categorie-3" type="button" class="btn btn-admin"><span>Femmes</span></button>
+                    <button data-toggle="list" href="#categorie-1" type="button" class="btn-admin active"><span>Joueurs</span></button>
+                    <button data-toggle="list" href="#categorie-2" type="button" class="btn-admin"><span>Hommes</span></button>
+                    <button data-toggle="list" href="#categorie-3" type="button" class="btn-admin"><span>Femmes</span></button>
                 </div>
 
                 <h4>Sous-catégories</h4>
-                <div class="tab-content">
+                <div class="tab-content liste-sous-categories">
 
                     <div id="categorie-1" class="tab-pane fade show active">
                         <div class="list-group" id="list-tab2">
-                            <button data-toggle="list" href="#sous-categorie-1" type="button" class="btn btn-admin active"><span>Sous-catégorie 1</span></button>
-                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn btn-admin"><span>Sous-catégorie 2</span></button>
-                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn btn-admin"><span>Sous-catégorie 2</span></button>
-                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn btn-admin"><span>Sous-catégorie 2</span></button>
+                            <button data-toggle="list" href="#sous-categorie-1" type="button" class="btn-admin active"><span>Sous-catégorie 1</span></button>
+                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn-admin"><span>Sous-catégorie 2</span></button>
+                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn-admin"><span>Sous-catégorie 2</span></button>
+                            <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn-admin"><span>Sous-catégorie 2</span></button>
                         </div>
                     </div>
                     <div id="categorie-2" class="tab-pane fade">
                         <div class="list-group" id="list-tab3">
-                            <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn btn-admin">Sous-catégorie 3</button>
-                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn btn-admin">Sous-catégorie 4</button>
+                            <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn-admin">Sous-catégorie 3</button>
+                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn-admin">Sous-catégorie 4</button>
                         </div>
                     </div>
                     <div id="categorie-3" class="tab-pane fade">
                         <div class="list-group" id="list-tab3">
-                            <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn btn-admin">Sous-catégorie 3</button>
-                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn btn-admin">Sous-catégorie 4</button>
-                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn btn-admin">Sous-catégorie 4</button>
+                            <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn-admin">Sous-catégorie 3</button>
+                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn-admin">Sous-catégorie 4</button>
+                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn-admin">Sous-catégorie 4</button>
                         </div>
                     </div>
                 </div>

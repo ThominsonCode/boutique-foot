@@ -8,7 +8,7 @@
     overflow: hidden;
     position: relative;
     color: #fff;
-    font-weight: 700;
+    /* font-weight: 700; */
     font-size: 15px;
     background-color: #222;
     padding: 17px 20px;
@@ -16,6 +16,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.20);
     width: 200px;
     height: 50px;
+    margin-bottom: 10px;
 }
 
 .btn-admin span {
@@ -32,7 +33,7 @@
     width: 140%;
     background: #78c7d2;
     -webkit-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+    transition: all .2s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
     transform: translateX(-98%) translateY(-25%) rotate(45deg);
 }
@@ -45,4 +46,8 @@
 
 .btn-admin:focus {
     background: #78c7d2;
+}
+
+.liste-sous-categories button {
+    text-transform: capitalize;
 }
