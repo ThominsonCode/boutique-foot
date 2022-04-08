@@ -1,3 +1,8 @@
+body {
+    background-image: url("Image/background.jpg");
+    background-size: cover;
+}
+
 #carouselExampleControls {
     margin: 0 15%;
 }
