@@ -53,7 +53,8 @@ header {
     margin: 0 15%;
 }
 
-.nouveaute {
+#nouveaute {
+    margin: 50px 0;
     text-align: center;
 }
 
@@ -65,7 +66,7 @@ header {
 .red {
     background-color: #9D0208;
     width: auto;
-    height: 600px;
+    height: 575px;
     overflow: auto;
 }
 
