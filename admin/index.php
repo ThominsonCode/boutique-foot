@@ -37,7 +37,7 @@
 
                     <div id="categorie-1" class="tab-pane fade show active">
                         <div class="list-group" id="list-tab2">
-                            <button data-toggle="list" href="#sous-categorie-1" type="button" class="btn-admin active"><span>Sous-catégorie 1</span></button>
+                            <button data-toggle="list" href="#sous-categorie-1" t.36ype="button" class="btn-admin active"><span>Sous-catégorie 1</span></button>
                             <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn-admin"><span>Sous-catégorie 2</span></button>
                             <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn-admin"><span>Sous-catégorie 2</span></button>
                             <button data-toggle="list" href="#sous-categorie-2" type="button" class="btn-admin"><span>Sous-catégorie 2</span></button>

@@ -1,8 +1,59 @@
-#myCarousel {
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-nav {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-icons {
+    margin-right: 50px;
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sous-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    border: 1px solid lightgrey;
+    margin-left: -10px;
+}
+
+.menu-femme:hover .sous-menu-femme {
+    display: flex;
+}
+
+.menu-homme:hover .sous-menu-homme {
+    display: flex;
+}
+
+.menu-enfant:hover .sous-menu-enfant {
+    display: flex;
+}
+
+.menu-accessoires:hover .sous-menu-accessoires {
+    display: flex;
+}
+
+.menu-nouveautes:hover .sous-menu-nouveautes {
+    display: flex;
+}
+
+#carouselExampleControls {
     margin: 0 15%;
 }
 
-.nouveaute{
+.nouveaute {
     text-align: center;
 }
 
@@ -15,6 +66,7 @@
     background-color: #9D0208;
     width: auto;
     height: 600px;
+    overflow: auto;
 }
 
 .maps {
