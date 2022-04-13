@@ -13,7 +13,6 @@ header {
     z-index: 1;
     width: 100%;
     background-color: white;
-
 }
 
 .header-nav {
@@ -63,7 +62,6 @@ header {
 
 #myCarousel {
     margin: 0 15%;
-    margin-top: 20px;
 }
 
 #nouveaute {

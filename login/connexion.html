@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Validation de formulaire</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script src="validation.js"></script>
+</head>
+
+<body>
+	<section class="container">
+		<div class="row text-center jumbotron">
+			<div class="col-lg-12"><h2 class="text-center">Newsletter Subscription</h2><br /></div>
+			<!-- Début -->
+			<div class="col-lg-12">
+				<div style="display: none;" id="erreur" class="alert alert-danger">
+					<p>Vous n'avez pas rempli correctement tous les champs du formulaire !</p>
+				</div>
+				<div style="display: none;" id="bravo">
+					<p class="text-center,alert alert-success">Tout a fonctionné correctement !! </p>
+				</div>
+				<form role="form" id="Form" class="text-center">     				 
+					<div class="form-group">
+							<input type="text" class="form-control champ" id="prenom" name="prenom" placeholder="Prénom">
+							<span class="help-block" style="display: none;">Merci de n'entrer que des lettres</span>
+					</div>
+					<div class="form-group">
+							<input type="text" class="form-control champ" id="nom" name="nom" placeholder="Nom">
+							<span class="help-block" style="display: none;">Merci de n'entrer que des lettres</span>
+					</div>
+					<div class="form-group">
+							<input type="text" class="form-control champ" id="pseudo" name="pseudo" placeholder="Pseudo">
+							<span class="help-block" style="display: none;">Merci d'entrer un Pseudo de 5 caractères (miniscule/nombre/-) minimum et 16 maximum</span>
+					</div>
+					<div class="form-group">
+							<input type="password" class="form-control champ" id="mdp" name="mdp" placeholder="Mot de passe">
+							<span class="help-block" style="display: none;">Le mot de passe doit respecter des exigences (majuscule, minuscule, chiffre, caractère spécial) entre 8 et 16 caractères</span>
+					</div>
+					<div class="form-group">
+							<input type="password" class="form-control champ" id="confirmation_mdp" name="confirmation_mdp" placeholder="Confirmation">
+							<span class="help-block" style="display: none;">Les mots de passe doivent être identiques !</span>
+					</div>
+					<div class="form-group">
+							<input type="text" class="form-control champ" id="mail" name="mail" placeholder="Adresse email">
+							<span class="help-block" style="display: none;">Adresse email non valide</span>
+					</div>
+					<div class="form-group">
+							<input type="phone" class="form-control champ" id="tel" name="tel" placeholder="Téléphone">
+							<span class="help-block" style="display: none;">Numéro de téléphone non valide</span>
+					</div>
+						<input type="submit" class="btn btn-primary btn-lg" name="envoi" id="envoi" value="Envoyer" />
+						<input type="submit" class="btn btn-warning btn-lg" name="reset" id="reset" value="Initialiser" />
+				</form>
+			</div>
+			<!-- Fin -->
+		</div>
+	</section>
+</body>
+</html>
