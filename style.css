@@ -1,5 +1,10 @@
+main {
+    padding-top: 100px;
+}
+
 header {
-    margin-top: -20px;
+    /* margin-top: -20px; */
+    overflow: hidden;
     display: flex;
     position: fixed;
     justify-content: space-between;
