@@ -1,31 +1,27 @@
 <html>
-    <head>
-       <meta charset="utf-8">
-        <!-- importer le fichier de style -->
-        <link rel="stylesheet" href="style.css"/>
-    </head>
-    <body>
-        <div id="container">
-            <!-- zone de connexion -->
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="container">
+        <form>
+            <h1>Connexion</h1>
+
+            <label for="nom_use"><b>Nom d'utilisateur</b></label>
+            <input type="text" placeholder="Entrer le nom d'utilisateur" id="nom_use" name="username" required>
+
+            <label for="mdp"><b>Mot de passe</b></label>
+            <input type="password" placeholder="Entrer le mot de passe" id="mdp" name="password" required>
             
-            <form action="verification.php" method="POST">
-                <h1>Connexion</h1>
-                
-                <label><b>Nom d'utilisateur</b></label>
-                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+            <label><b>Nouveau chez FootClub : <b><a style="color:#9D0208;" href="connexion.html">Veuillez créer un compte</a></label>
 
-                <label><b>Mot de passe</b></label>
-                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+            <input type="submit" id='submit' value='LOGIN'>
 
-                <input type="submit" id='submit' value='LOGIN' >
-                <?php
-                if(isset($_GET['erreur'])){
-                    $err = $_GET['erreur'];
-                    if($err==1 || $err==2)
-                        echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
-                }
-                ?>
-            </form>
-        </div>
-    </body>
+        </form>
+    </div>
+</body>
+
 </html>
