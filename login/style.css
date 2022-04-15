@@ -8,8 +8,8 @@ body {
  
 #container{
     width:400px;
-    margin:0 auto;
-    margin-top:10%;
+    display: block;
+    margin : 5% auto;
 }
 /* Bordered form */
 form {
