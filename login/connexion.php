@@ -28,10 +28,6 @@
         extract($_POST);
 
         if (!empty($connexion_mdp) && !empty($connexion_mail)) {
-            // $options = [
-            //     'cost' => 12,
-            // ];
-            // $hashpwd = password_hash($connexion_mdp, PASSWORD_BCRYPT, $options);
 
             require 'database.php';
 
@@ -47,6 +43,7 @@
             } else {
                 echo "L'adresse mail portant l'email " . $connexion_mail . " n'existe pas !";
             }
+            $db = Database::disconnect();
         } else {
             echo "Les champs ne sont pas tous bien remplies";
         }

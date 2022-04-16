@@ -56,6 +56,7 @@
                 } else {
                     echo 'Un email existe déjà';
                 }
+                $db = Database::disconnect();
             }
         } else {
             echo "Les champs ne sont pas tous bien remplies";
