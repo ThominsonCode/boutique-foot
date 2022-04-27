@@ -73,32 +73,32 @@
     $sous_categories = [
         [
             'id' => 0,
-            'categorie' => 'homme',
+            'categorie' => 0,
             'nom' => 'homme-1'
         ],
         [
             'id' => 1,
-            'categorie' => 'homme',
+            'categorie' => 0,
             'nom' => 'homme-2'
         ],
         [
             'id' => 2,
-            'categorie' => 'femme',
+            'categorie' => 1,
             'nom' => 'femme-1'
         ],
         [
             'id' => 3,
-            'categorie' => 'femme',
-            'nom' => 'homme-2'
+            'categorie' => 1,
+            'nom' => 'femme-2'
         ],
         [
             'id' => 4,
-            'categorie' => 'enfant',
+            'categorie' => 2,
             'nom' => 'enfant-1'
         ],
         [
             'id' => 5,
-            'categorie' => 'enfant',
+            'categorie' => 2,
             'nom' => 'enfant-2'
         ]
     ];
@@ -132,37 +132,28 @@
 
                 <h4>Sous-catégories</h4>
                 <div class="tab-content liste-sous-categories">
-
-                    <div id="categorie-0" class="tab-pane fade show active">
-                        <div class="list-group" id="list-tab2">
-                            <?php
-                            foreach ($sous_categories as $sous_categorie) {
-                                if ($sous_categorie['categorie'] == 'homme') {
-                                    if ($sous_categorie['id'] == 0) {
-                                        echo '<button data-toggle="list" href="#sous-categorie-' . $sous_categorie['id'] . '" type="button" class="btn-admin active"><span>' . $sous_categorie['nom'] . '</span></button>';
-                                    } else {
-                                        echo '<button data-toggle="list" href="#sous-categorie-' . $sous_categorie['id'] . '" type="button" class="btn-admin"><span>' . $sous_categorie['nom'] . '</span></button>';
-                                    }
+                    <?php
+                    foreach ($categories as $categorie) {
+                        if ($categorie['id'] == 0) {
+                            echo '<div id="categorie-' . $categorie['id'] . '" class="tab-pane fade show active">';
+                        } else {
+                            echo '<div id="categorie-' . $categorie['id'] . '" class="tab-pane fade show">';
+                        }
+                        echo '<div class="list-group">';
+                        foreach ($sous_categories as $sous_categorie) {
+                            if ($sous_categorie['categorie'] == $categorie['id']) {
+                                if ($sous_categorie['id'] == 0) {
+                                    echo '<button data-toggle="list" href="#sous-categorie-' . $sous_categorie['id'] . '" type="button" class="btn-admin active"><span>' . $sous_categorie['nom'] . '</span></button>';
+                                } else {
+                                    echo '<button data-toggle="list" href="#sous-categorie-' . $sous_categorie['id'] . '" type="button" class="btn-admin"><span>' . $sous_categorie['nom'] . '</span></button>';
                                 }
                             }
-                            ?>
-                        </div>
-                    </div>
+                        }
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                    ?>
 
-                    <div id="categorie-1" class="tab-pane fade">
-                        <div class="list-group" id="list-tab3">
-                            <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn-admin"><span>Sous-catégorie 3</span></button>
-                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn-admin"><span>Sous-catégorie 4</span></button>
-                        </div>
-                    </div>
-
-                    <div id="categorie-2" class="tab-pane fade">
-                        <div class="list-group" id="list-tab3">
-                            <button data-toggle="list" href="#sous-categorie-3" type="button" class="btn-admin"><span>Sous-catégorie 5</span></button>
-                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn-admin"><span>Sous-catégorie 6</span></button>
-                            <button data-toggle="list" href="#sous-categorie-4" type="button" class="btn-admin"><span>Sous-catégorie 4</span></button>
-                        </div>
-                    </div>
                     <div class="list-group">
                         <button href="#" type="button" class="btn-admin btn-admin-ajouter" data-toggle="modal" data-target="#modal-ajouter-sous-categorie"><span>AJOUTER</span></button>
                         <button href="#" type="button" class="btn-admin btn-admin-modifier" data-toggle="modal" data-target="#modal-modifier-sous-categorie"><span>MODIFIER</span></button>
