@@ -94,8 +94,8 @@
 
 
         <div class="nav-icons">
-            <a href="login/connexion.php"><i class="fas fa-user fa-2x"></i></a>
-            <a href="#"><i class="fas fa-cart-shopping fa-2x"></i></a>
+            <a href="login/connexion.php"><i class="fas fa-user fa-2x" style="color: black;"></i></a>
+            <a href="#"><i class="fas fa-cart-shopping fa-2x" style="color: black;"></i></a>
         </div>
     </nav>
 
