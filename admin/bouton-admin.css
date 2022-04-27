@@ -38,6 +38,7 @@
     transform: translateX(-98%) translateY(-25%) rotate(45deg);
 }
 
+
 .btn-admin:hover:after,
 .btn-admin:focus::after {
     -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
@@ -46,6 +47,14 @@
 
 .btn-admin:focus {
     background: #D00000;
+}
+
+.btn-admin-ajouter:after {
+    background: blue;
+}
+
+.btn-admin-ajouter:focus {
+    background: blue;
 }
 
 .liste-sous-categories button {
