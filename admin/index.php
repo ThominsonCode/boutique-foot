@@ -21,7 +21,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-12 col-sm-12 col-md-3">
                 <br><br>
                 <h4>Catégories</h4>
 
@@ -59,7 +59,9 @@
                 </div>
 
             </div>
-            <div class="col-md-9">
+            <div class="col-12 col-sm-12 col-md-1"></div>
+
+            <div class="col-12 col-sm-12 col-md-8">
 
                 <h2>Eléments</h2>
                 <hr>
