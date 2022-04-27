@@ -31,7 +31,8 @@
     top: 0;
     height: 490%;
     width: 140%;
-    background: #D00000;
+    /* background: #D00000; */
+    background: blue;
     -webkit-transition: all .5s ease-in-out;
     transition: all .2s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
@@ -46,15 +47,32 @@
 }
 
 .btn-admin:focus {
-    background: #D00000;
+    /* background: #D00000; */
+    background: blue;
 }
 
 .btn-admin-ajouter:after {
-    background: blue;
+    background: green;
 }
 
 .btn-admin-ajouter:focus {
-    background: blue;
+    background: green;
+}
+
+.btn-admin-modifier:after {
+    background: orange;
+}
+
+.btn-admin-modifier:focus {
+    background: orange;
+}
+
+.btn-admin-supprimer:after {
+    background: red;
+}
+
+.btn-admin-supprimer:focus {
+    background: red;
 }
 
 .liste-sous-categories button {
