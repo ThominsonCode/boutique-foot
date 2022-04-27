@@ -33,55 +33,9 @@
 </head>
 
 <body>
-    <header>
-        <img style="width: 100px;" href="#" src="image/Logo_Club.png" alt="Logo_Club">
-        <nav class="header-nav">
-            <div class="menu-homme">
-                <a href="#">HOMME</a>
-                <div class="sous-menu sous-menu-homme">
-                    <a href="#">Homme 1</a>
-                    <a href="#">Homme 2</a>
-                    <a href="#">Homme 3</a>
-                </div>
-            </div>
-            <div class="menu-femme">
-                <a href="#">FEMMME</a>
-                <div class="sous-menu sous-menu-femme">
-                    <a href="#">Femme 1</a>
-                    <a href="#">Femme 2</a>
-                    <a href="#">Femme 3</a>
-                </div>
-            </div>
-            <div class="menu-enfant">
-                <a href="#">ENFANT</a>
-                <div class="sous-menu sous-menu-enfant">
-                    <a href="#">Enfant 1</a>
-                    <a href="#">Enfant 2</a>
-                    <a href="#">Enfant 3</a>
-                </div>
-            </div>
-            <div class="menu-accessoires">
-                <a href="#">ACCESSOIRES</a>
-                <div class="sous-menu sous-menu-accessoires">
-                    <a href="#">sous catégrie 1</a>
-                    <a href="#">sous catégrie 2</a>
-                    <a href="#">sous catégrie 3</a>
-                </div>
-            </div>
-            <div class="menu-nouveautes">
-                <a href="#nouveaute">NOUVEAUTES</a>
-                <div class="sous-menu sous-menu-nouveautes">
-                    <a href="#">sous catégrie 1</a>
-                    <a href="#">sous catégrie 2</a>
-                    <a href="#">sous catégrie 3</a>
-                </div>
-            </div>
-        </nav>
-        <div class="nav-icons">
-            <a href="login/connexion.php"><i class="fas fa-user fa-2x"></i></a>
-            <a href="panier/panier.php"><i class="fas fa-cart-shopping fa-2x"></i></a>
-        </div>
-    </header>
+    <?php
+        require("header.php");
+    ?>
 
     <main>
 
@@ -97,13 +51,13 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="Image/téléchargement.png" alt="...">
+                    <img class="d-block w-100" src="Image/limoges.png" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="Image/om_122_crop-670x370.png" alt="...">
+                    <img class="d-block w-100" src="Image/football.jpg" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="Image/om_122_crop-670x370.png" alt="...">
+                    <img class="d-block w-100" src="Image/boutique.png" alt="...">
                 </div>
             </div>
 
