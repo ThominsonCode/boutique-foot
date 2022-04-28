@@ -21,8 +21,9 @@
 
 
     <!--CSS-->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="logstyle.css">
-    <link rel="stylesheet" href="../style.css">
+
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
@@ -32,38 +33,38 @@
 <body>
 
     <?php
-        require("../common/navbar.php");
+        require("navbar.php");
     ?>
     <div id="container">
         <form method="post">
             <h1>Inscription</h1>
 
             <label for="inscription_nom"><b>Nom</b></label>
-            <input type="text" placeholder="Entrer votre nom" id="inscription_nom" name="inscription_nom">
+            <input type="text" placeholder="Entrer votre nom" id="inscription_nom" name="inscription_nom" required>
 
             <label for="inscription_prenom"><b>Prenom</b></label>
-            <input type="text" placeholder="Entrer votre prénom" id="inscription_prenom" name="inscription_prenom">
+            <input type="text" placeholder="Entrer votre prénom" id="inscription_prenom" name="inscription_prenom" required>
 
             <label for="inscription_email"><b>Adresse email</b></label>
-            <input type="text" placeholder="Entrer votre adresse email" id="inscription_email" name="inscription_email">
+            <input type="text" placeholder="Entrer votre adresse email" id="inscription_email" name="inscription_email" required>
 
             <label for="inscription_mdp"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Entrer votre mot de passe" id="inscription_mdp" name="inscription_mdp">
+            <input type="password" placeholder="Entrer votre mot de passe" id="inscription_mdp" name="inscription_mdp" required>
 
             <label for="inscription_confirmation_mdp"><b>Entrer le mot de passe à nouveau</b></label>
-            <input type="password" placeholder="Entrer à nouveau votre mot de passe" id="inscription_confirmation_mdp" name="inscription_confirmation_mdp">
+            <input type="password" placeholder="Entrer à nouveau votre mot de passe" id="inscription_confirmation_mdp" name="inscription_confirmation_mdp" required>
 
             <label for="inscription_adresse"><b>Adresse</b></label>
-            <input type="text" placeholder="Entrer votre adresse" id="inscription_adresse" name="inscription_adresse">
+            <input type="text" placeholder="Entrer votre adresse" id="inscription_adresse" name="inscription_adresse" required>
 
             <label for="inscription_code_postal"><b>Code postal</b></label>
-            <input type="text" placeholder="Entrer votre code postal" id="inscription_code_postal" name="inscription_code_postal">
+            <input type="text" placeholder="Entrer votre code postal" id="inscription_code_postal" name="inscription_code_postal" required>
 
             <label for="inscription_ville"><b>Ville</b></label>
-            <input type="text" placeholder="Entrer votre ville" id="inscription_ville" name="inscription_ville">
+            <input type="text" placeholder="Entrer votre ville" id="inscription_ville" name="inscription_ville" required>
 
             <label for="inscription_telephone"><b>Telephone</b></label>
-            <input type="text" placeholder="Entrer votre numero de téléphone" id="inscription_telephone" name="inscription_telephone">
+            <input type="text" placeholder="Entrer votre numero de téléphone" id="inscription_telephone" name="inscription_telephone" required>
             <p></p>
 
             <label><b>Vous avez déjà un compte : <b><a style="color:#9D0208;" href="connexion.php">Veuillez vous connecter</a></label>
@@ -105,13 +106,13 @@
                         'ville' => $inscription_ville,
                         'telephone' => $inscription_telephone,
                     ]);
-                    echo 'Le compte a été créé <br>';
+                    echo 'alert("Le compte a été créé <br>")';
                     // $mot = $inscription_nom;
                     // $lettre = $mot[0];
                     // echo $lettre;
                     // $_SESSION['lettre'] = $lettre ; 
                 } else {
-                    echo 'Un email existe déjà';
+                    echo 'alert("Un email existe déjà")';
                 }
 
 

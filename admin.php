@@ -1,5 +1,5 @@
 <?php
-require('common/header.php');
+require('header.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -13,7 +13,7 @@ require('common/header.php');
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="CSS/adminstyle.css">
+    <link rel="stylesheet" href="adminstyle.css">
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
@@ -21,7 +21,7 @@ require('common/header.php');
 
 <body>
     <?php
-    require("common/navbar.php");
+    require("navbar.php");
     ?>
 
     <?php
@@ -54,7 +54,7 @@ require('common/header.php');
         // Database::disconnect();
 
         //-----------------------------------------------------------
-        // require '../login/database.php';
+        // require 'database.php';
         // $categories = [$db->query('');]
         // $sous_categories = $db->query('');
         // $items = $db->query('');

@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Open Sans';
-    background-image: url("../Image/background.jpg");
+    background-image: url("image/background.jpg");
     background-size: cover;
 }
 
@@ -23,8 +23,9 @@ form {
 
 #container h1 {
     width: 38%;
-    margin: 0 auto;
+    margin-left: 20%;
     padding-bottom: 10px;
+    text-align: center;
 }
 
 /* Full-width inputs */

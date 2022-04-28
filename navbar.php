@@ -1,11 +1,12 @@
-<!-- <?php
+<?php
 if (!isset($_SESSION['user'])) {
-    $_SESSION['user'] = "pas-co";
+     $_SESSION['user'] = "pas-co";
     // echo 'ok!!';
 } else {
-    echo $_SESSION['user'];
+    // include('index.php');
+    // echo $_SESSION['user'];
 }
-?> -->
+?>
 
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
 
@@ -13,7 +14,7 @@ if (!isset($_SESSION['user'])) {
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <a href="../index.php"> <img style="width: 100px;" href="#" src="../Image/Logo_Club.png" alt="Logo_Club"></a>
+    <a href="index.php"> <img style="width: 100px;" href="#" src="Image/Logo_Club.png" alt="Logo_Club"></a>
 
     <!-- <a class="navbar-brand" href="#">LaBoutique</a> -->
 
@@ -79,14 +80,14 @@ if (!isset($_SESSION['user'])) {
     </div>
 
     <div class="nav-icons">
-        <a href="login/connexion.php"><i class="fas fa-user fa-2x" style="color: black;"></i></a>
+        <a href="connexion.php"><i class="fas fa-user fa-2x" style="color: black;"></i></a>
         <div class="block">
             <div class="circle">
                 <?php
-                    require("../login/database.php");
-                    Database::connect();
-                    echo '<p style="text-transform: uppercase;">' . $_SESSION['user'][0] . '</p>';
-                    Database::disconnect();
+                require("database.php");
+                Database::connect();
+                echo '<p style="text-transform: uppercase;">' . $_SESSION['user'][0] . '</p>';
+                Database::disconnect();
                 ?>
             </div>
         </div>

@@ -47,7 +47,7 @@ if (isset($_POST['connexion_send'])) {
 
     <!--CSS-->
     <link rel="stylesheet" href="logstyle.css">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
@@ -55,7 +55,7 @@ if (isset($_POST['connexion_send'])) {
 
 <body>
     <?php
-    require("../common/navbar.php");
+    require("navbar.php");
     ?>
     <div id="container">
         <form method="post">

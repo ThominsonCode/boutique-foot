@@ -1,5 +1,5 @@
 <?php
-require('common/header.php');
+ require('header.php');
 ?>
 <!doctype html>
 <html lang="fr">
@@ -33,7 +33,7 @@ require('common/header.php');
 
 <body>
     <?php
-    require("common/navbar.php");
+    require("navbar.php");
     ?>
 
     <main>
