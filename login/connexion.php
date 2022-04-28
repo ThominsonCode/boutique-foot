@@ -3,10 +3,12 @@
 $users = [
     [
         'email' => 'admin@admin.fr',
+        'nom' => 'administrateur',
         'passwd' => 'admin'
     ],
     [
-        'email' => 'toto',
+        'email' => 'toto@toto.fr',
+        'nom' => 'toto',
         'passwd' => 'tata'
     ]
 ];
@@ -15,10 +17,7 @@ if (isset($_POST['connexion_send'])) {
 
     foreach ($users as $user) {
         if ($user['email'] == $connexion_mail && $user['passwd'] == $connexion_mdp) {
-            // unset($_COOKIE['user']);
-            setcookie('user', $connexion_mail, 0, '/', NULL, 0);
-
-            // $_COOKIE['user'] = $connexion_mail;
+            setcookie('user', $user['nom'], 0, '/', NULL, 0);
         }
     }
 }

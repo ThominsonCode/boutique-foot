@@ -1,6 +1,7 @@
 <?php
 if (!isset($_COOKIE['user'])) {
     setcookie('user', 'pas-co', 0, '/', NULL, 0);
+    // echo 'ok!!';
 } else {
     echo $_COOKIE['user'];
 }
@@ -11,8 +12,8 @@ if (!isset($_COOKIE['user'])) {
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <a href="../index.php"> <img style="width: 100px;" href="#" src="../Image/Logo_Club.png" alt="Logo_Club"></a>
 
-    <img style="width: 100px;" href="#" src="../Image/Logo_Club.png" alt="Logo_Club">
     <!-- <a class="navbar-brand" href="#">LaBoutique</a> -->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
