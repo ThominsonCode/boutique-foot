@@ -106,9 +106,10 @@
                         'telephone' => $inscription_telephone,
                     ]);
                     echo 'Le compte a été créé <br>';
-                    $mot = $inscription_nom;
-                    $lettre = $mot[0];
-                    echo $lettre;
+                    // $mot = $inscription_nom;
+                    // $lettre = $mot[0];
+                    // echo $lettre;
+                    // $_SESSION['lettre'] = $lettre ; 
                 } else {
                     echo 'Un email existe déjà';
                 }

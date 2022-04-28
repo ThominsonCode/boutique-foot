@@ -84,7 +84,7 @@ if (!isset($_SESSION['user'])) {
                 <?php
                     require("database.php");
                     Database::connect();
-                    echo '<p>' . $lettre . '</p>';
+                    echo '<p style="text-transform: uppercase;">' . $_SESSION['user'][0] . '</p>';
                     Database::disconnect();
                 ?>
             </div>

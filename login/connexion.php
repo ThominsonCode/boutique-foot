@@ -27,7 +27,7 @@ if (isset($_POST['connexion_send'])) {
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <!-- ICONS -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
 
     <!-- Required meta tags -->
@@ -46,7 +46,8 @@ if (isset($_POST['connexion_send'])) {
 
 
     <!--CSS-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="logstyle.css">
+    <link rel="stylesheet" href="../style.css">
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
