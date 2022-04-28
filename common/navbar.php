@@ -1,12 +1,13 @@
-<?php
+<!-- <?php
 if (!isset($_SESSION['user'])) {
     $_SESSION['user'] = "pas-co";
     // echo 'ok!!';
 } else {
     echo $_SESSION['user'];
 }
+?> -->
 
-?><nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -82,7 +83,7 @@ if (!isset($_SESSION['user'])) {
         <div class="block">
             <div class="circle">
                 <?php
-                    require("database.php");
+                    require("../login/database.php");
                     Database::connect();
                     echo '<p style="text-transform: uppercase;">' . $_SESSION['user'][0] . '</p>';
                     Database::disconnect();
