@@ -26,10 +26,28 @@ main {
 }
 
 .nav-icons {
-    margin-right: 50px;
     width: 100px;
     display: flex;
     justify-content: space-between;
+}
+
+.block {
+    text-align: center;
+    vertical-align: middle;
+}
+.circle {
+    background: red;
+    border-radius: 32px;
+    color: white;
+    height: 32px;
+    font-weight: bold;
+    width: 32px;
+    display: table;
+}
+
+.circle p {
+    vertical-align: middle;
+    display: table-cell;
 }
 
 .sous-menu {
