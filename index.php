@@ -1,3 +1,6 @@
+<?php
+require('common/header.php');
+?>
 <!doctype html>
 <html lang="fr">
 
