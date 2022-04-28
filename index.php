@@ -35,8 +35,8 @@
 
     <main>
 
-        <div style="display: block; position: absolute; width: 100%; height: 100px; z-index: -1;">
-        </div>
+        <!-- <div style="display: block; position: absolute; width: 100%; height: 100px; z-index: -1;">
+        </div> -->
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
