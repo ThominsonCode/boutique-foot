@@ -1,4 +1,5 @@
 <?php
+session_start();
 // ================ essais libres ==================
 $users = [
     [
@@ -17,7 +18,8 @@ if (isset($_POST['connexion_send'])) {
 
     foreach ($users as $user) {
         if ($user['email'] == $connexion_mail && $user['passwd'] == $connexion_mdp) {
-            setcookie('user', $user['nom'], 0, '/', NULL, 0);
+            // setcookie('user', $user['nom'], 0, '/', NULL, 0);
+            $_SESSION['user'] = $user['nom'];
         }
     }
 }

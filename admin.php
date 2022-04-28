@@ -1,3 +1,6 @@
+<?php
+require('common/header.php');
+?>
 <!doctype html>
 <html lang="en">
 
@@ -22,7 +25,7 @@
     ?>
 
     <?php
-    if (isset($_COOKIE['user']) && $_COOKIE['user'] == 'administrateur') {
+    if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
     ?>
 
         <?php

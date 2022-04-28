@@ -1,9 +1,9 @@
 <?php
-if (!isset($_COOKIE['user'])) {
-    setcookie('user', 'pas-co', 0, '/', NULL, 0);
+if (!isset($_SESSION['user'])) {
+    $_SESSION['user'] = "pas-co";
     // echo 'ok!!';
 } else {
-    echo $_COOKIE['user'];
+    echo $_SESSION['user'];
 }
 
 ?><nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
