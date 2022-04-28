@@ -2,19 +2,6 @@ main {
     padding-top: 30px;
 }
 
-header {
-    /* margin-top: -20px; */
-    /* overflow: hidden; */
-    display: flex;
-    position: fixed;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 1rem 1rem 0 rgb(0 0 0 / 10%), 0 0.5rem 1rem -1rem rgb(0 0 0 / 32%);
-    z-index: 1;
-    width: 100%;
-    background-color: white;
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
