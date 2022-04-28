@@ -68,7 +68,7 @@
         </div>
 
 
-        <div id="nouveaute" style="background-color: yellow;">
+        <div id="nouveaute" style="background-color: rgb(211,211,211); padding: 20px">
             <h4>Nouveautés FootClub 2022</h4>
             <p>Retrouvez les nouveaux produits officiels FootClub 2022</p>
             <div class="row">
@@ -86,7 +86,7 @@
                                 <a href="#">
                                     <h3 style="font-size: 100%;">Pantalon OM Football Heritage Bleu</h3>
                                 </a>
-                                <button>Ajout rapide</button>
+                                <button>Ajouter au panier</button>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                 <a href="#">
                                     <h3 style="font-size: 100%;">Pantalon OM Football Heritage Bleu</h3>
                                 </a>
-                                <button>Ajout rapide</button>
+                                <button>Ajouter au panier</button>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                                 <a href="#">
                                     <h3 style="font-size: 100%;">Pantalon OM Football Heritage Bleu</h3>
                                 </a>
-                                <button>Ajout rapide</button>
+                                <button>Ajouter au panier</button>
                             </div>
                         </div>
                     </div>
