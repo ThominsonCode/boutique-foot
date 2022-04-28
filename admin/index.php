@@ -53,8 +53,6 @@
     // $sous_categories = $db->query('');
     // $items = $db->query('');
 
-    // while ($categorie = $categories->fetch()) {
-    // }
 
     $categories = [
         [
@@ -102,7 +100,50 @@
             'nom' => 'enfant-2'
         ]
     ];
-    $items = ['item-1', 'item-2', 'item-3'];
+    $items = [
+        [
+            'id' => 0,
+            'sous-categorie' => 0,
+            'nom' => 'item 1',
+            'prix' => '15.5'
+        ],
+        [
+            'id' => 1,
+            'sous-categorie' => 0,
+            'nom' => 'item 2',
+            'prix' => '15.5'
+        ],
+        [
+            'id' => 2,
+            'sous-categorie' => 1,
+            'nom' => 'item 3',
+            'prix' => '15.5'
+        ],
+        [
+            'id' => 3,
+            'sous-categorie' => 2,
+            'nom' => 'item 4',
+            'prix' => '15.5'
+        ],
+        [
+            'id' => 4,
+            'sous-categorie' => 3,
+            'nom' => 'item 5',
+            'prix' => '15.5'
+        ],
+        [
+            'id' => 5,
+            'sous-categorie' => 4,
+            'nom' => 'item 6',
+            'prix' => '15.5'
+        ],
+        [
+            'id' => 6,
+            'sous-categorie' => 5,
+            'nom' => 'item 7',
+            'prix' => '15.5'
+        ]
+    ];
 
 
     ?>
