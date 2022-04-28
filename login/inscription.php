@@ -20,23 +20,23 @@
             <input type="text" placeholder="Entrer votre adresse email" id="inscription_email" name="inscription_email">
 
             <label for="inscription_mdp"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" id="inscription_mdp" name="inscription_mdp">
+            <input type="password" placeholder="Entrer votre mot de passe" id="inscription_mdp" name="inscription_mdp">
 
-            <label for="inscription_confirmation_mdp"><b>Entrez le mot de passe à nouveau</b></label>
-            <input type="password" placeholder="Entrer à nouveau le mot de passe" id="inscription_confirmation_mdp" name="inscription_confirmation_mdp">
-            <p></p>
+            <label for="inscription_confirmation_mdp"><b>Entrer le mot de passe à nouveau</b></label>
+            <input type="password" placeholder="Entrer à nouveau votre mot de passe" id="inscription_confirmation_mdp" name="inscription_confirmation_mdp">
             
             <label for="inscription_adresse"><b>Adresse</b></label>
             <input type="text" placeholder="Entrer votre adresse" id="inscription_adresse" name="inscription_adresse">
 
-            <label for="inscription_code_postal"><b>Mot de passe</b></label>
+            <label for="inscription_code_postal"><b>Code postal</b></label>
             <input type="text" placeholder="Entrer votre code postal" id="inscription_code_postal" name="inscription_code_postal">
             
             <label for="inscription_ville"><b>Ville</b></label>
             <input type="text" placeholder="Entrer votre ville" id="inscription_ville" name="inscription_ville">
 
-            <label for="inscription_numero"><b>Mot de passe</b></label>
-            <input type="tel" placeholder="Entrer votre numero de téléphone" id="inscription_numero" name="inscription_numero">
+            <label for="inscription_telephone"><b>Telephone</b></label>
+            <input type="text" placeholder="Entrer votre numero de téléphone" id="inscription_telephone" name="inscription_telephone">
+            <p></p>
 
             <label><b>Vous avez déjà un compte : <b><a style="color:#9D0208;" href="connexion.php">Veuillez vous connecter</a></label>
             <p></p>
@@ -49,7 +49,7 @@
     if (isset($_POST['inscription_send'])) {
         extract($_POST);
 
-        if (!empty($inscription_mdp) && !empty($inscription_email) && !empty($inscription_confirmation_mdp)) {
+        if (!empty($inscription_nom) && !empty($inscription_prenom) && !empty($inscription_mdp) && !empty($inscription_email) && !empty($inscription_confirmation_mdp) && !empty($inscription_adresse) && !empty($inscription_code_postal) && !empty($inscription_ville) && !empty($inscription_telephone)) {
             if ($inscription_mdp == $inscription_confirmation_mdp) {
                 $options = [
                     'cost' => 12,
@@ -66,15 +66,23 @@
                 $result = $statement->rowCount();
 
                 if ($result == 0) {
-                    $statement = $db->prepare("INSERT INTO utilisateur(mail, mot_de_passe) VALUES(:mail, :mot_de_passe)");
+                    $statement = $db->prepare("INSERT INTO utilisateur(nom, prenom, mail, mot_de_passe, adresse, code_postal, ville, telephone) VALUES(:nom, :prenom, :mail, :mot_de_passe, :adresse, :code_postal, :ville, :telephone)");
                     $statement->execute([
+                        'nom' => $inscription_nom, 
+                        'prenom' => $inscription_prenom,
                         'mail' => $inscription_email,
-                        'mot_de_passe' => $hashpwd
+                        'mot_de_passe' => $hashpwd, 
+                        'adresse' => $inscription_adresse,
+                        'code_postal' => $inscription_code_postal,
+                        'ville' => $inscription_ville, 
+                        'telephone' => $inscription_telephone,
                     ]);
                     echo 'Le compte a été créé';
                 } else {
                     echo 'Un email existe déjà';
                 }
+                $premiere_lettre = $db->prepare("SELECT LEFT(inscription_nom, 1");
+                
                 $db = Database::disconnect();
             }
         } else {
