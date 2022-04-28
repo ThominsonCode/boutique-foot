@@ -1,11 +1,39 @@
 <html>
 
 <head>
+<title>FootClub 2022</title>
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
+
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!--CSS-->
+    <link rel="stylesheet" href="logstyle.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- ICONES -->
+    <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
+
+    <?php
+        require("../common/navbar.php");
+    ?>
     <div id="container">
         <form method="post">
             <h1>Inscription</h1>
@@ -24,13 +52,13 @@
 
             <label for="inscription_confirmation_mdp"><b>Entrer le mot de passe à nouveau</b></label>
             <input type="password" placeholder="Entrer à nouveau votre mot de passe" id="inscription_confirmation_mdp" name="inscription_confirmation_mdp">
-            
+
             <label for="inscription_adresse"><b>Adresse</b></label>
             <input type="text" placeholder="Entrer votre adresse" id="inscription_adresse" name="inscription_adresse">
 
             <label for="inscription_code_postal"><b>Code postal</b></label>
             <input type="text" placeholder="Entrer votre code postal" id="inscription_code_postal" name="inscription_code_postal">
-            
+
             <label for="inscription_ville"><b>Ville</b></label>
             <input type="text" placeholder="Entrer votre ville" id="inscription_ville" name="inscription_ville">
 
@@ -68,21 +96,24 @@
                 if ($result == 0) {
                     $statement = $db->prepare("INSERT INTO utilisateur(nom, prenom, mail, mot_de_passe, adresse, code_postal, ville, telephone) VALUES(:nom, :prenom, :mail, :mot_de_passe, :adresse, :code_postal, :ville, :telephone)");
                     $statement->execute([
-                        'nom' => $inscription_nom, 
+                        'nom' => $inscription_nom,
                         'prenom' => $inscription_prenom,
                         'mail' => $inscription_email,
-                        'mot_de_passe' => $hashpwd, 
+                        'mot_de_passe' => $hashpwd,
                         'adresse' => $inscription_adresse,
                         'code_postal' => $inscription_code_postal,
-                        'ville' => $inscription_ville, 
+                        'ville' => $inscription_ville,
                         'telephone' => $inscription_telephone,
                     ]);
-                    echo 'Le compte a été créé';
+                    echo 'Le compte a été créé <br>';
+                    $mot = $inscription_nom;
+                    $lettre = $mot[0];
+                    echo $lettre;
                 } else {
                     echo 'Un email existe déjà';
                 }
-                $premiere_lettre = $db->prepare("SELECT LEFT(inscription_nom, 1");
-                
+
+
                 $db = Database::disconnect();
             }
         } else {

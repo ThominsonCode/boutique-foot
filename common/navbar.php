@@ -81,7 +81,12 @@ if (!isset($_COOKIE['user'])) {
         <a href="login/connexion.php"><i class="fas fa-user fa-2x" style="color: black;"></i></a>
         <div class="block">
             <div class="circle">
-                <p>C</p>
+                <?php
+                    require("database.php");
+                    Database::connect();
+                    echo '<p>' . $lettre . '</p>';
+                    Database::disconnect();
+                ?>
             </div>
         </div>
         <a href="#"><i class="fas fa-cart-shopping fa-2x" style="color: black;"></i></a>
