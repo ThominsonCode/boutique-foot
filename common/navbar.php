@@ -1,11 +1,18 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+<?php
+if (!isset($_COOKIE['user'])) {
+    setcookie('user', 'pas-co', 0, '/', NULL, 0);
+} else {
+    echo $_COOKIE['user'];
+}
+
+?><nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
 
-    <img style="width: 100px;" href="#" src="Image/Logo_Club.png" alt="Logo_Club">
+    <img style="width: 100px;" href="#" src="../Image/Logo_Club.png" alt="Logo_Club">
     <!-- <a class="navbar-brand" href="#">LaBoutique</a> -->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
