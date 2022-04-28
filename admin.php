@@ -213,7 +213,34 @@
 
                 <div class="tab-content">
 
-                    <div id="sous-categorie-0" class="tab-pane fade show active">
+                    <?php
+                    foreach ($sous_categories as $sous_categorie) {
+                        if ($sous_categorie['id'] == 0) {
+                            echo '<div id="sous-categorie-' . $sous_categorie['id'] . '" class="tab-pane fade show active">';
+                        } else {
+                            echo '<div id="sous-categorie-' . $sous_categorie['id'] . '" class="tab-pane fade show">';
+                        }
+
+                        foreach ($items as $item) {
+                            if ($item['sous-categorie'] == $sous_categorie['id']) {
+                                echo '<div class="admin-list-element">';
+                                echo '<p>' . $item['nom'] . '</p>';
+
+                                echo '<div class="boutons">
+                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                            </div>';
+
+                                echo '</div>';
+                            }
+                        }
+
+                        echo '</div>';
+                    }
+                    ?>
+
+                    <!-- <div id="sous-categorie-0" class="tab-pane fade show active">
 
                         <div class="admin-list-element">
                             <p>Premier élément</p>
@@ -233,70 +260,7 @@
                             </div>
                         </div>
 
-                    </div>
-
-
-                    <div id="sous-categorie-1" class="tab-pane fade">
-
-                        <div class="admin-list-element">
-                            <p>Troisième élément</p>
-                            <div class="boutons">
-                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
-                            </div>
-                        </div>
-
-                        <div class="admin-list-element">
-                            <p>Quatrième élément</p>
-                            <div class="boutons">
-                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div id="sous-categorie-2" class="tab-pane fade">
-                        <div class="admin-list-element">
-                            <p>Quatrième élément</p>
-                            <div class="boutons">
-                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
-                            </div>
-                        </div>
-
-                        <div class="admin-list-element">
-                            <p>Cinquième élément</p>
-                            <div class="boutons">
-                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="sous-categorie-3" class="tab-pane fade">
-                        <div class="admin-list-element">
-                            <p>Sixième élément</p>
-                            <div class="boutons">
-                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
-                            </div>
-                        </div>
-
-                        <div class="admin-list-element">
-                            <p>Septième élément</p>
-                            <div class="boutons">
-                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -346,11 +310,11 @@
                         <div class="form-group">
                             <label>Choisir une catégorie</label>
                             <select name="ancien-nom" class="form-control">
-                                <option>Nom 1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <?php
+                                foreach ($categories as $categorie) {
+                                    echo '<option>' . $categorie['nom'] . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -383,11 +347,11 @@
                         <div class="form-group">
                             <label>Choisissez une catégorie</label>
                             <select name="categorie-a-supprimer" class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <?php
+                                foreach ($categories as $categorie) {
+                                    echo '<option>' . $categorie['nom'] . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
@@ -451,11 +415,11 @@
                         <div class="form-group">
                             <label>Choisir une sous-catégorie</label>
                             <select name="ancien-nom-sous-categorie" class="form-control">
-                                <option>Nom 1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <?php
+                                foreach ($sous_categories as $sous_categorie) {
+                                    echo '<option value="' . $sous_categorie['id'] . '">' . $categories[$sous_categorie['categorie']]['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -488,11 +452,11 @@
                         <div class="form-group">
                             <label>Choisissez une sous-catégorie</label>
                             <select name="sous-categorie-a-supprimer" class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <?php
+                                foreach ($sous_categories as $sous_categorie) {
+                                    echo '<option value="' . $sous_categorie['id'] . '">' . $categories[$sous_categorie['categorie']]['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>

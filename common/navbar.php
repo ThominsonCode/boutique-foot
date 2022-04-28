@@ -5,7 +5,7 @@
     </button>
 
 
-    <img style="width: 100px;" href="#" src="../image/Logo_Club.png" alt="Logo_Club">
+    <img style="width: 100px;" href="#" src="Image/Logo_Club.png" alt="Logo_Club">
     <!-- <a class="navbar-brand" href="#">LaBoutique</a> -->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
