@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['user'])) {
-     $_SESSION['user'] = "pas-co";
+    $_SESSION['user'] = "pas-co";
     // echo 'ok!!';
 } else {
     // include('index.php');
