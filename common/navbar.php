@@ -49,7 +49,7 @@ $items = $statement->fetchAll();
                 <?php
                 echo '
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <p style="text-transform: uppercase;">fethi' . $_SESSION['user'][0] . '</p>
+                    <p style="text-transform: uppercase;">' . $_SESSION['user'][0] . '</p>
                 </div>';
                 ?>
             </div>

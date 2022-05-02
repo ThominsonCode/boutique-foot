@@ -652,7 +652,7 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 <?php
 } else {
 ?>
-    <h1>Vous n'avez pas les permissions requises pour voir cette page. <br> Veuillez vous connecter.</h1>
+    <h1 style="margin: 50px 50px;">Vous n'avez pas les permissions requises pour voir cette page. <br> Veuillez vous connecter.</h1>
     <div style="display: block; height:400px"></div>
 <?php
 }
