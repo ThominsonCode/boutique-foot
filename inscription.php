@@ -100,14 +100,9 @@ if (isset($_POST['inscription_send'])) {
                     'ville' => $inscription_ville,
                     'telephone' => $inscription_telephone,
                 ]);
-                echo 'alert("Le compte a été créé <br>")';
-                // $mot = $inscription_nom;
-                // $lettre = $mot[0];
-                // echo $lettre;
-                // $_SESSION['lettre'] = $lettre ; 
-            } else {
-                echo 'alert("Un email existe déjà")';
-            }
+                echo '<script>alert("Le compte a été créé");</script>';
+            } else
+                echo '<script>alert("Un erreur a eu lieu lors de l\'inscription");</script>';
         }
     } else {
         echo "Les champs ne sont pas tous bien remplies";
