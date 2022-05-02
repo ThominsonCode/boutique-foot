@@ -41,17 +41,19 @@ $items = $statement->fetchAll();
             ?>
         </ul>
     </div>
-    
+
     <div class="nav-icons">
         <a href="connexion.php"><i class="fas fa-user fa-2x" style="color: black;"></i></a>
         <div class="block">
             <div class="circle">
-                <?php
-                echo '
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <p style="text-transform: uppercase;">' . $_SESSION['user'][0] . '</p>
-                </div>';
-                ?>
+                <div class="dropdown show">
+                    <a role="button" data-toggle="dropdown">
+                        <p style="text-transform : uppercase;"><?= $_SESSION['user'][0] ?></p>
+                    </a>
+                    <div style="background: red;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                        <a style="text-align: center;" class="dropdown-item" role="button">Déconnexion</a>
+                    </div>
+                </div>
             </div>
         </div>
         <a href="panier.php"><i class="fas fa-cart-shopping fa-2x" style="color: black;"></i></a>
