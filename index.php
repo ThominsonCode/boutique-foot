@@ -11,6 +11,8 @@ if (isset($_SESSION['uid']) && isset($_POST['ajouter-item-id'])) {
     // echo 'vous etes : ' . $_SESSION['uid'];
     $statement = $db->prepare('INSERT INTO historique (user, item) values (?,?)');
     $statement->execute(array($_SESSION['uid'], $_POST['ajouter-item-id']));
+} else {
+    echo '<script>alert("Vous n\'êtes pas connectés. Veuillez vous connecter.");</script>';
 }
 
 
