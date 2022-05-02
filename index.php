@@ -57,7 +57,7 @@ if (isset($_POST['ajouter-item-id'])) {
         $items = $statement->fetchAll();
 
         foreach ($items as $item) {
-            echo '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            echo '<div style="margin:50px" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="container">
                     <div class="thumbnail">
                         <div>
@@ -118,7 +118,7 @@ if (isset($_POST['ajouter-item-id'])) {
             while ($item = $statement->fetch()) {
                 if ($item['souscategorie'] == $_GET['id']) {
                     echo
-                    '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    '<div style="margin:50px" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="thumbnail">
                     <div>
                         <img alt="' . $item['nom'] . '"src="image/' . $item['image'] . '" width="200px;" height="200px;">
