@@ -46,12 +46,21 @@ $items = $statement->fetchAll();
         <a href="connexion.php"><i class="fas fa-user fa-2x" style="color: black;"></i></a>
         <div class="block">
             <div class="circle">
-                <div class="dropdown show">
+                <div class="nav-item dropdown dropdown show" role="presentation">
                     <a role="button" data-toggle="dropdown">
-                        <p style="text-transform : uppercase;"><?= $_SESSION['user'][0] ?></p>
+                        <?php
+                        if ($_SESSION['user'] != "pas-co")
+                            echo '<p style="text-transform : uppercase;">' . $_SESSION['user'][0] . '</p>';
+                        else
+                            echo '<p style="text-transform : uppercase;"> <img src="image/vide.png" alt="vide"> </p>';
+                        ?>
                     </a>
                     <div style="background: red;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                         <a style="text-align: center;" class="dropdown-item" role="button">Déconnexion</a>
+                        <?php
+                        unset($_SESSION['uid']);
+                        unset($_SESSION['user']);
+                        ?>
                     </div>
                 </div>
             </div>
