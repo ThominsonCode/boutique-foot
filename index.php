@@ -4,7 +4,7 @@ require('common/header.php');
 
 require("common/navbar.php");
 ?>
-<main>;
+<main>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin : auto 277px;">
 
@@ -49,8 +49,7 @@ require("common/navbar.php");
                     <div class="thumbnail">
                         <div>
                             <img alt="' . $item['nom'] . '"src="image/' . $item['image'] . '" width="300px;" height="300px;">
-                            <p class=" prix">' . number_format($item['prix'], 2, '.', '') . ' €</p>
-                            </a>
+                            <p class="prix">' . number_format($item['prix'], 2, '.', '') . ' €</p>
                             <p class="new">Nouveauté</p>
                         </div>
                         <div class="caption">
@@ -86,7 +85,38 @@ require("common/navbar.php");
         </div>
     </div>
 
-    
+    <?php
+    $statement = $db->query('SELECT * FROM souscategorie');
+    $souscategories = $statement->fetchAll();
+
+    echo '<div class="tab-content">';
+
+    foreach ($souscategories as $souscategory) {
+        echo '<div class="tab-pane" id="' . $souscategory['id'] . '">';
+
+        echo '<div class="row">';
+
+        $statement = $db->prepare('SELECT * FROM item WHERE item.souscategorie = ?');
+            $statement->execute(array($souscategory['id']));
+
+            while ($item = $statement->fetch()) {
+                echo
+                '<div class="col-xs-12 col-md-6">
+                    <div class="thumbnail">
+                        <img src="image/' . $item['image'] . '" alt="' . $item['nom'] . '">
+                        <div class="price">' . number_format($item['prix'], 2, '.', '') . ' €</div>
+                        <div class="caption">
+                            <h4>' . $item['nom'] . '</h4>
+                            <a href="#" class="btn btn-order" role="button" data-toggle="modal" data-target="#modal' . $item['id'] . '"> Voir le détail</a>
+                        </div>  
+                    </div>
+                </div>';
+            }
+        echo '</div>
+        </div>';
+    }
+    echo '</div>';
+    ?>
 
     <?php
     require('common/footer.php');
