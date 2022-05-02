@@ -71,7 +71,7 @@ a {
     display: block;
     text-align: center;
     cursor: pointer;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     outline: none;
     overflow: hidden;
     position: relative;
