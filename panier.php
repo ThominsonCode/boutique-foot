@@ -5,6 +5,4 @@ require("common/navbar.php");
 ?>
 
 
-</body>
-
-</html>
+<?php require('common/footer.php') ?>
