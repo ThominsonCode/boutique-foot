@@ -456,4 +456,5 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
     </div>
 <?php
 }
+require('common/footer.php');
 ?>

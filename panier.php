@@ -5,5 +5,7 @@ require('common/header.php');
 require("common/navbar.php");
 ?>
 
+<p>Lubin</p>
+
 
 <?php require('common/footer.php') ?>

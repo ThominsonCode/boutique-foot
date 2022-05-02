@@ -184,3 +184,20 @@ a {
     text-decoration: none;
     transition: .3s;
 }
+
+footer {
+    padding: 10px 0;
+    background-color: #6A040F;
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    color: white;
+}
+
+.copyright-section {
+    text-align: center;
+    background-color: #370617;
+    color: white;
+}
