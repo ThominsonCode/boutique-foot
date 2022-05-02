@@ -22,5 +22,5 @@
 
 </html>
 <?php
-Database::disconnect();
+$bd = Database::disconnect();
 ?>

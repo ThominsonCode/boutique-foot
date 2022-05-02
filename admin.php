@@ -5,130 +5,6 @@ require('common/header.php');
 require("common/navbar.php");
 
 if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
-?>
-
-    <?php
-
-    //     require 'database.php';
-
-    //     $db = Database::connect();
-    //     $statement = $db->query('SELECT items.id, items.name, items.description, items.price, categories.name AS category
-    // FROM items LEFT JOIN categories ON items.category = categories.id
-    // ORDER BY items.id DESC');
-
-    // while ($item = $statement->fetch()) {
-    //     echo '<tr>';
-    //     echo '<td>' . $item['name'] . '</td>';
-    //     echo '<td>' . $item['description'] . '</td>';
-    //     echo '<td>' . number_format((float)$item['price'], 2, '.', '') . '€</td>';
-    //     echo '<td>' . $item['category'] . '</td>';
-    //     echo '<td width=300>';
-    //     echo '<a class="btn btn-default" href="view.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-eye-open"></span> Voir</a> ';
-    //     echo '<a class="btn btn-primary" href="update.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-pencil"></span> Modifier</a> ';
-    //     echo '<a class="btn btn-danger" href="delete.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>';
-    //     echo '</td>';
-    //     echo '</tr>';
-    // }
-
-    // Database::disconnect();
-
-    //-----------------------------------------------------------
-    // require 'database.php';
-    // $categories = [$db->query('');]
-    // $sous_categories = $db->query('');
-    // $items = $db->query('');
-
-
-    $categories = [
-        [
-            'id' => 0,
-            'nom' => 'homme'
-        ],
-        [
-            'id' => 1,
-            'nom' => 'femme'
-        ],
-        [
-            'id' => 2,
-            'nom' => 'enfant'
-        ]
-    ];
-    $sous_categories = [
-        [
-            'id' => 0,
-            'categorie' => 0,
-            'nom' => 'homme-1'
-        ],
-        [
-            'id' => 1,
-            'categorie' => 0,
-            'nom' => 'homme-2'
-        ],
-        [
-            'id' => 2,
-            'categorie' => 1,
-            'nom' => 'femme-1'
-        ],
-        [
-            'id' => 3,
-            'categorie' => 1,
-            'nom' => 'femme-2'
-        ],
-        [
-            'id' => 4,
-            'categorie' => 2,
-            'nom' => 'enfant-1'
-        ],
-        [
-            'id' => 5,
-            'categorie' => 2,
-            'nom' => 'enfant-2'
-        ]
-    ];
-    $items = [
-        [
-            'id' => 0,
-            'sous-categorie' => 0,
-            'nom' => 'item 1',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 1,
-            'sous-categorie' => 0,
-            'nom' => 'item 2',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 2,
-            'sous-categorie' => 1,
-            'nom' => 'item 3',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 3,
-            'sous-categorie' => 2,
-            'nom' => 'item 4',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 4,
-            'sous-categorie' => 3,
-            'nom' => 'item 5',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 5,
-            'sous-categorie' => 4,
-            'nom' => 'item 6',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 6,
-            'sous-categorie' => 5,
-            'nom' => 'item 7',
-            'prix' => '15.5'
-        ]
-    ];
 
     $statement = $db->query('SELECT * FROM categorie');
     $categories = $statement->fetchAll();
@@ -137,7 +13,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
     $statement = $db->query('SELECT * FROM item');
     $items = $statement->fetchAll();
 
-    ?>
+?>
 
     <div class="container" style="margin-top: 30px;">
         <div class="row">

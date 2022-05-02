@@ -3,26 +3,39 @@ $css_sheet = "adminstyle";
 $css_sheet2 = "logstyle";
 require('common/header.php');
 // ================ essais libres ==================
-$users = [
-    [
-        'email' => 'admin@admin.fr',
-        'nom' => 'administrateur',
-        'passwd' => 'admin'
-    ],
-    [
-        'email' => 'toto@toto.fr',
-        'nom' => 'toto',
-        'passwd' => 'tata'
-    ]
-];
+$statement = $db->query('SELECT * FROM utilisateur');
+$users = $statement->fetchAll();
+
+// if (isset($_POST['connexion_send'])) {
+//     extract($_POST);
+
+//     foreach ($users as $user) {
+//         if ($user['email'] == $connexion_mail && $user['passwd'] == $connexion_mdp) {
+//             // setcookie('user', $user['nom'], 0, '/', NULL, 0);
+//             $_SESSION['user'] = $user['nom'];
+//         }
+//     }
+// }
+
 if (isset($_POST['connexion_send'])) {
     extract($_POST);
 
-    foreach ($users as $user) {
-        if ($user['email'] == $connexion_mail && $user['passwd'] == $connexion_mdp) {
-            // setcookie('user', $user['nom'], 0, '/', NULL, 0);
-            $_SESSION['user'] = $user['nom'];
+    if (!empty($connexion_mdp) && !empty($connexion_mail)) {
+
+
+        $statement = $db->prepare("SELECT * FROM utilisateur WHERE mail = :email");
+        $statement->execute(['email' => $connexion_mail]);
+
+        $result =   $statement->fetch();
+
+        if (password_verify($connexion_mdp, $result['mot_de_passe'])) {
+            $_SESSION['user'] = $connexion_mail;
+            echo "Le mot de passe est bon, connection en cours";
+        } else {
+            echo "L'adresse mail portant l'email " . $connexion_mail . " n'existe pas !";
         }
+    } else {
+        echo "Les champs ne sont pas tous bien remplies";
     }
 }
 ?>
@@ -46,37 +59,6 @@ require("common/navbar.php");
 
     </form>
 </div>
-
-<?php
-// if (isset($_POST['connexion_send'])) {
-//     extract($_POST);
-
-//     if (!empty($connexion_mdp) && !empty($connexion_mail)) {
-
-//         require 'database.php';
-
-//         $db = Database::connect();
-
-//         $statement = $db->prepare("SELECT * FROM utilisateur WHERE mail = :email");
-//         $statement->execute(['email' => $connexion_mail]);
-
-//         $result =   $statement->fetch();
-
-//         if (password_verify($connexion_mdp, $result['mot_de_passe'])) {
-//             echo "Le mot de passe est bon, connection en cours";
-//         } else {
-//             echo "L'adresse mail portant l'email " . $connexion_mail . " n'existe pas !";
-//         }
-//         $db = Database::disconnect();
-//     } else {
-//         echo "Les champs ne sont pas tous bien remplies";
-//     }
-// }
-
-
-
-
-?>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
