@@ -60,8 +60,13 @@ if (isset($_SESSION['uid'])) {
             <button type="submit" class="btn btn-outline-danger">Supprimer</button>
         </form>
 
-<?php
+    <?php
     }
+} else {
+    ?>
+    <h1 style="margin: 50px 50px;">Vous devez être connecté pour voir cette page. <br> Veuillez vous connecter.</h1>
+    <div style="display: block; height:400px"></div>
+<?php
 }
 
 require('common/footer.php') ?>
