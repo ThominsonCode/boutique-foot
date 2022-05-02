@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<title>FootClub 2022</title>
+    <title>FootClub 2022</title>
     <!-- ICONS -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
 
@@ -21,19 +21,19 @@
 
 
     <!--CSS-->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="logstyle.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/logstyle.css">
 
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
-    
+
 </head>
 
 <body>
 
     <?php
-        require("navbar.php");
+    require("navbar.php");
     ?>
     <div id="container">
         <form method="post">
