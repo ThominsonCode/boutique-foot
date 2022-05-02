@@ -4,41 +4,69 @@ $css_sheet2 = "logstyle";
 require('common/header.php');
 require("common/navbar.php");
 ?>
+
 <div id="container">
     <form method="post">
         <h1>Inscription</h1>
 
-        <label for="inscription_nom"><b>Nom</b></label>
-        <input type="text" placeholder="Entrer votre nom" id="inscription_nom" name="inscription_nom" required>
+        <div class="form-group">
+            <label for="inscription_nom"><b>Nom</b></label>
+            <input type="text" class="form-control champ" id="inscription_nom" name="inscription_nom" placeholder="Entrer votre nom" required>
+            <span class="help-block" style="display: none;">Merci de n'entrer que des lettres</span>
+        </div>
 
-        <label for="inscription_prenom"><b>Prenom</b></label>
-        <input type="text" placeholder="Entrer votre prénom" id="inscription_prenom" name="inscription_prenom" required>
+        <div class="form-group">
+            <label for="inscription_nom"><b>Prénom</b></label>
+            <input type="text" class="form-control champ" id="inscription_prenom" name="inscription_prenom" placeholder="Entrer votre prénom" required>
+            <span class="help-block" style="display: none;">Merci de n'entrer que des lettres</span>
+        </div>
 
-        <label for="inscription_email"><b>Adresse email</b></label>
-        <input type="mail" placeholder="Entrer votre adresse email" id="inscription_email" name="inscription_email" required>
+        <div class="form-group">
+            <label for="inscription_email"><b>Email</b></label>
+            <input type="text" class="form-control champ" id="inscription_email" name="inscription_email" placeholder="Entrer votre adresse email" required>
+            <span class="help-block" style="display: none;">Adresse email non valide</span>
+        </div>
 
-        <label for="inscription_mdp"><b>Mot de passe</b></label>
-        <input type="password" placeholder="Entrer votre mot de passe" id="inscription_mdp" name="inscription_mdp" required>
+        <div class="form-group">
+            <label for="inscription_mdp"><b>Mot de passe</b></label>
+            <input type="password" class="form-control champ" id="inscription_mdp" name="inscription_mdp" placeholder="Entrer votre mot de passe" required>
+            <span class="help-block" style="display: none;">Le mot de passe doit respecter des exigences (majuscule, minuscule, chiffre, caractère spécial) entre 8 et 16 caractères</span>
+        </div>
 
-        <label for="inscription_confirmation_mdp"><b>Entrer le mot de passe à nouveau</b></label>
-        <input type="password" placeholder="Entrer à nouveau votre mot de passe" id="inscription_confirmation_mdp" name="inscription_confirmation_mdp" required>
+        <div class="form-group">
+            <label for="inscription_confirmation_mdp"><b>Entrer le mot de passe à nouveau</b></label>
+            <input type="password" class="form-control champ" id="inscription_confirmation_mdp" name="inscription_confirmation_mdp" placeholder="Entrer à nouveau votre mot de passe" required>
+            <span class="help-block" style="display: none;">Les mots de passe doivent être identiques !</span>
+        </div>
 
-        <label for="inscription_adresse"><b>Adresse</b></label>
-        <input type="text" placeholder="Entrer votre adresse" id="inscription_adresse" name="inscription_adresse" required>
+        <div class="form-group">
+            <label for="inscription_adresse"><b>Adresse</b></label>
+            <input type="text" class="form-control champ" id="inscription_adresse" name="inscription_adresse" placeholder="Entrer votre adresse" required>
+        </div>
 
-        <label for="inscription_code_postal"><b>Code postal</b></label>
-        <input type="text" placeholder="Entrer votre code postal" id="inscription_code_postal" name="inscription_code_postal" required>
+        <div class="form-group">
+            <label for="inscription_code_postal"><b>Code postal</b></label>
+            <input type="text" class="form-control champ" id="inscription_code_postal" name="inscription_code_postal" placeholder="Entrer votre code postal" required>
+            <span class="help-block" style="display: none;">Code postal non valide</span>
+        </div>
 
-        <label for="inscription_ville"><b>Ville</b></label>
-        <input type="text" placeholder="Entrer votre ville" id="inscription_ville" name="inscription_ville" required>
+        <div class="form-group">
+            <label for="inscription_ville"><b>Ville</b></label>
+            <input type="text" class="form-control champ" id="inscription_ville" name="inscription_ville" placeholder="Entrer votre ville" required>
+            <span class="help-block" style="display: none;">Nom de ville non valide</span>
+        </div>
 
-        <label for="inscription_telephone"><b>Telephone</b></label>
-        <input type="text" placeholder="Entrer votre numero de téléphone" id="inscription_telephone" name="inscription_telephone" required>
+        <div class="form-group">
+            <label for="inscription_telephone"><b>Téléphone</b></label>
+            <input type="text" class="form-control champ" id="inscription_telephone" name="inscription_telephone" placeholder="Entrer votre numero de téléphone" required>
+            <span class="help-block" style="display: none;">Numéro de téléphone non valide</span>
+        </div>
+
         <p></p>
 
         <label><b>Vous avez déjà un compte : <b><a style="color:#9D0208;" href="connexion.php">Veuillez vous connecter</a></label>
         <p></p>
-        <input type="submit" id='inscription_send' name='inscription_send' value='INSCRIPTION'>
+        <input type="submit" id='inscription_send' name='inscription_send' value='INSCRIPTION'/>
     </form>
 </div>
 
@@ -86,4 +114,5 @@ if (isset($_POST['inscription_send'])) {
     }
 }
 ?>
+
 </body>
