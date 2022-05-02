@@ -1,8 +1,8 @@
 <?php
 $css_sheet = "adminstyle";
-require('header.php');
+require('common/header.php');
 
-require("navbar.php");
+require("common/navbar.php");
 
 if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
 ?>

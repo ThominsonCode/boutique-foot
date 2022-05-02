@@ -1,7 +1,7 @@
 <?php
 $css_sheet = "adminstyle";
 $css_sheet2 = "logstyle";
-require('header.php');
+require('common/header.php');
 // ================ essais libres ==================
 $users = [
     [
@@ -28,7 +28,7 @@ if (isset($_POST['connexion_send'])) {
 ?>
 
 <?php
-require("navbar.php");
+require("common/navbar.php");
 ?>
 <div id="container">
     <form method="post">

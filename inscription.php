@@ -1,8 +1,8 @@
 <?php
 $css_sheet = "adminstyle";
 $css_sheet2 = "logstyle";
-require('header.php');
-require("navbar.php");
+require('common/header.php');
+require("common/navbar.php");
 ?>
 <div id="container">
     <form method="post">

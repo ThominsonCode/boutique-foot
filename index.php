@@ -1,11 +1,8 @@
 <?php
 $css_sheet = "style";
-require('header.php');
+require('common/header.php');
 
-?>
-
-<?php
-require("navbar.php");
+require("common/navbar.php");
 ?>
 
 <main>
