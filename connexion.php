@@ -46,8 +46,8 @@ if (isset($_POST['connexion_send'])) {
 
 
     <!--CSS-->
-    <link rel="stylesheet" href="logstyle.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/logstyle.css">
+    <link rel="stylesheet" href="CSS/style.css">
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
