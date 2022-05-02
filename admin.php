@@ -4,7 +4,7 @@ require('common/header.php');
 
 require("common/navbar.php");
 
-if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
+if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
     $statement = $db->query('SELECT * FROM categorie');
     $categories = $statement->fetchAll();
@@ -91,14 +91,56 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
 
                         foreach ($items as $item) {
                             if ($item['souscategorie'] == $sous_categorie['id']) {
+
+
+                                echo '
+                                <div class="modal fade bd-example-modal-lg" id="modal-voir-item-' . $item['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">VOIR l\'item ' . $item['id'] . '</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h2>Nom de l\'item :</h2>
+                            <p>' . $item['nom'] . '</p>
+                            <h2>Prix de l\'item :</h2>
+                            <p>prix : ' . number_format($item['prix'], 2, '.', '') . ' €</p>
+                            <h2>Catégorie :</h2>
+                            <p>' . $categorie['nom'] . '</p>
+                            <h2>Sous-catégorie :</h2>
+                            <p>' . $sous_categorie['nom'] . '</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <img src="Image/' . $item['image'] . '" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>                                
+                                ';
+
                                 echo '<div class="admin-list-element">';
                                 echo '<p>' . $item['nom'] . '</p>';
 
+
+
                                 echo '<div class="boutons">
-                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a class="btn-voir" type="button" data-toggle="modal" data-target="#modal-voir-item-' . $item['id'] . '"><i class="fas fa-eye"></i>&nbsp; Voir</a>
                                 <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
                                 <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>';
+
+
 
                                 echo '</div>';
                             }
@@ -336,6 +378,38 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
             </div>
         </div>
     </div>
+
+
+    <!-- Voir un item -->
+    <div class="modal fade bd-example-modal-lg" id="modal-modifier-item-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">VOIR l'item 5</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h2>Thomas</h2>
+                            <p>prix : 50000€</p>
+                            <p>sous-catégorie</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <img src="Image/casquette2.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <?php
 }
 require('common/footer.php');
