@@ -10,10 +10,10 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
         $sc_id = $_POST['ajouter-item-id-sous-categorie'];
         $item_nom = $_POST['ajouter-item-nom'];
         $item_prix = $_POST['ajouter-item-prix'];
-        echo 'AJOUTER un item <br>';
-        echo 'id sous-categorie : ' . $sc_id . '<br>';
-        echo 'nom item : ' . $item_nom . '<br>';
-        echo 'prix : ' . $item_prix . '<br>';
+        // echo 'AJOUTER un item <br>';
+        // echo 'id sous-categorie : ' . $sc_id . '<br>';
+        // echo 'nom item : ' . $item_nom . '<br>';
+        // echo 'prix : ' . $item_prix . '<br>';
 
         $statement = $db->prepare('INSERT INTO item (nom, prix, souscategorie, image) values (?,?,?,?)');
         $statement->execute(array($item_nom, $item_prix, $sc_id, 'casquette1.png'));
@@ -24,11 +24,11 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
         $sc_id = $_POST['modifier-item-id-sous-categorie'];
         $item_nom = $_POST['modifier-item-nouveau-nom'];
         $item_prix = $_POST['modifier-item-nouveau-prix'];
-        echo 'MODIFIER un item <br>';
-        echo 'id item : ' . $item_id . '<br>';
-        echo 'id sous-categorie : ' . $sc_id . '<br>';
-        echo 'nouveau nom : ' . $item_nom . '<br>';
-        echo 'nouveau prix : ' . $item_prix . '<br>';
+        // echo 'MODIFIER un item <br>';
+        // echo 'id item : ' . $item_id . '<br>';
+        // echo 'id sous-categorie : ' . $sc_id . '<br>';
+        // echo 'nouveau nom : ' . $item_nom . '<br>';
+        // echo 'nouveau prix : ' . $item_prix . '<br>';
 
         $statement = $db->prepare('UPDATE item set nom = ?, souscategorie = ?, prix= ? WHERE id = ?');
         $statement->execute(array($item_nom, $sc_id, $item_prix, $item_id));
@@ -36,8 +36,8 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
     if (isset($_POST['supprimer-item-id'])) {
         $item_id = $_POST['supprimer-item-id'];
-        echo 'SUPPRIMER un item <br>';
-        echo 'id item : ' . $item_id . '<br>';
+        // echo 'SUPPRIMER un item <br>';
+        // echo 'id item : ' . $item_id . '<br>';
 
         $statement = $db->prepare('DELETE FROM item WHERE id = ?');
         $statement->execute(array($item_id));
@@ -45,8 +45,8 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
     if (isset($_POST['ajouter-categorie-nom'])) {
         $c_nom = $_POST['ajouter-categorie-nom'];
-        echo 'AJOUTER une catégorie <br>';
-        echo 'nom categorie : ' . $c_nom . '<br>';
+        // echo 'AJOUTER une catégorie <br>';
+        // echo 'nom categorie : ' . $c_nom . '<br>';
 
         $statement = $db->prepare('INSERT INTO categorie (nom) values (?)');
         $statement->execute(array($c_nom));
@@ -55,9 +55,9 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
     if (isset($_POST['modifier-categorie-id']) && isset($_POST['modifier-categorie-nouveau-nom'])) {
         $c_id = $_POST['modifier-categorie-id'];
         $c_nom = $_POST['modifier-categorie-nouveau-nom'];
-        echo 'MODIFIER une catégorie <br>';
-        echo 'id categorie : ' . $c_id . '<br>';
-        echo 'catégorie nouveau nom : ' . $c_nom . '<br>';
+        // echo 'MODIFIER une catégorie <br>';
+        // echo 'id categorie : ' . $c_id . '<br>';
+        // echo 'catégorie nouveau nom : ' . $c_nom . '<br>';
 
         $statement = $db->prepare('UPDATE categorie set nom = ? WHERE id = ?');
         $statement->execute(array($c_nom, $c_id));
@@ -65,8 +65,8 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
     if (isset($_POST['supprimer-categorie-id'])) {
         $c_id = $_POST['supprimer-categorie-id'];
-        echo 'SUPPRIMER une catégorie <br>';
-        echo 'id categorie : ' . $c_id . '<br>';
+        // echo 'SUPPRIMER une catégorie <br>';
+        // echo 'id categorie : ' . $c_id . '<br>';
 
         $statement = $db->prepare('DELETE FROM categorie WHERE id = ?');
         $statement->execute(array($c_id));
@@ -75,9 +75,9 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
     if (isset($_POST['ajouter-sous-categorie-id-categorie']) && isset($_POST['ajouter-sous-categorie-nom'])) {
         $c_id = $_POST['ajouter-sous-categorie-id-categorie'];
         $sc_nom = $_POST['ajouter-sous-categorie-nom'];
-        echo 'AJOUTER une sous-catégorie <br>';
-        echo 'id categorie : ' . $c_id . '<br>';
-        echo 'sous-catégorie nouveau nom : ' . $sc_nom . '<br>';
+        // echo 'AJOUTER une sous-catégorie <br>';
+        // echo 'id categorie : ' . $c_id . '<br>';
+        // echo 'sous-catégorie nouveau nom : ' . $sc_nom . '<br>';
 
         $statement = $db->prepare('INSERT INTO souscategorie (nom, categorie) values (?,?)');
         $statement->execute(array($sc_nom, $c_id));
@@ -87,10 +87,10 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
         $sc_id = $_POST['modifier-sous-categorie-id'];
         $c_id = $_POST['modifier-sous-categorie-id-categorie'];
         $sc_nom = $_POST['modifier-sous-categorie-nouveau-nom'];
-        echo 'MODIFIER une sous-catégorie <br>';
-        echo 'id sous-categorie : ' . $sc_id . '<br>';
-        echo 'id categorie : ' . $c_id . '<br>';
-        echo 'nouveau nom sous-catégorie : ' . $sc_nom . '<br>';
+        // echo 'MODIFIER une sous-catégorie <br>';
+        // echo 'id sous-categorie : ' . $sc_id . '<br>';
+        // echo 'id categorie : ' . $c_id . '<br>';
+        // echo 'nouveau nom sous-catégorie : ' . $sc_nom . '<br>';
 
         $statement = $db->prepare('UPDATE souscategorie set nom = ?, categorie = ? WHERE id = ?');
         $statement->execute(array($sc_nom, $c_id, $sc_id));
@@ -98,8 +98,8 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
     if (isset($_POST['supprimer-sous-categorie-id'])) {
         $sc_id = $_POST['supprimer-sous-categorie-id'];
-        echo 'SUPPRIMER une sous-catégorie <br>';
-        echo 'id sous-categorie : ' . $sc_id . '<br>';
+        // echo 'SUPPRIMER une sous-catégorie <br>';
+        // echo 'id sous-categorie : ' . $sc_id . '<br>';
 
         $statement = $db->prepare('DELETE FROM souscategorie WHERE id = ?');
         $statement->execute(array($sc_id));

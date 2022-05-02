@@ -7,8 +7,8 @@ require("common/navbar.php");
 
 if (isset($_POST['ajouter-item-id'])) {
     echo 'AJOUTER un item du panier <br>';
-    echo 'item id : ' . $_POST['ajouter-item-id'];
-    echo 'vous etes : ' . $_SESSION['uid'];
+    // echo 'item id : ' . $_POST['ajouter-item-id'];
+    // echo 'vous etes : ' . $_SESSION['uid'];
     $statement = $db->prepare('INSERT INTO historique (user, item) values (?,?)');
     $statement->execute(array($_SESSION['uid'], $_POST['ajouter-item-id']));
 }
@@ -69,7 +69,13 @@ if (isset($_POST['ajouter-item-id'])) {
                             <a href="#">
                                 <h3 style="text-transform : uppercase;" style="font-size: 100%;">' . $item['nom'] . '</h3>
                             </a>
-                            <button>Ajouter au panier</button>
+                            <form action="" method="POST">
+            <div class="form-group">
+                <input type="hidden" name="ajouter-item-id" value="' . $item['id'] . '">
+            </div>
+
+            <button width="200px;" height="200px;" type="submit" class="btn btn-outline-danger">Ajouter au panier</button>
+        </form>
                         </div>
                     </div>
                 </div>
