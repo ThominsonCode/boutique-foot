@@ -136,7 +136,7 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
                                 echo '<div class="boutons">
                                 <a class="btn-voir" type="button" data-toggle="modal" data-target="#modal-voir-item-' . $item['id'] . '"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-modifier" type="button" data-toggle="modal" data-target="#modal-modifier-item-5"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
                                 <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>';
 
@@ -380,28 +380,82 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
     </div>
 
 
-    <!-- Voir un item -->
+    <!-- Modifier un item -->
     <div class="modal fade bd-example-modal-lg" id="modal-modifier-item-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">VOIR l'item 5</h5>
+                    <h5 class="modal-title">Modifier l'item 5</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
-                            <h2>Thomas</h2>
-                            <p>prix : 50000€</p>
-                            <p>sous-catégorie</p>
+                    <?php
+                    $i_id = 5;
+                    $i = null;
+
+                    $sc_id = 0;
+                    $sc = null;
+
+                    $c_id = 0;
+                    $c = null;
+
+                    foreach ($items as $item) {
+                        if ($item['id'] == $i_id) {
+                            $i = $item;
+                            break;
+                        }
+                    }
+
+                    $sc_id = $i['souscategorie'];
+
+                    foreach ($sous_categories as $sous_categorie) {
+                        if ($sous_categorie['id'] == $sc_id) {
+                            $sc = $sous_categorie;
+                            break;
+                        }
+                    }
+
+                    $c_id = $sc['categorie'];
+
+                    foreach ($categories as $categorie) {
+                        if ($categorie['id'] == $c_id) {
+                            $c = $categorie;
+                            break;
+                        }
+                    }
+
+
+                    ?>
+
+                    <p>Catégorie actuelle : <strong><?= $c['nom']; ?></strong></p>
+                    <p>Sous-catégorie actuelle : <strong><?= $sc['nom']; ?></strong></p>
+
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label>Choisir une nouvelle sous-catégorie</label>
+                            <select name="ancien-nom-sous-categorie" class="form-control">
+                                <?php
+                                foreach ($categories as $categorie) {
+                                    foreach ($sous_categories as $sous_categorie) {
+                                        if ($sous_categorie['categorie'] == $categorie['id']) {
+                                            echo '<option value="' . $sous_categorie['id'] . '">' . $categorie['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                        }
+                                    }
+                                }
+                                ?>
+                            </select>
                         </div>
-                        <div class="col-sm-12 col-md-6">
-                            <img src="Image/casquette2.png" class="img-fluid">
+                        <div class="form-group">
+                            <label>Nouveau nom de l'item</label>
+                            <input name="nouveau-nom-item" type="text" class="form-control" placeholder="Nouveau nom de l'item">
                         </div>
-                    </div>
+
+                        <button type="submit" class="btn btn-primary">Valider</button>
+                    </form>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>

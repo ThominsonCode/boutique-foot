@@ -30,7 +30,10 @@ $db = Database::connect();
 
     <!--CSS-->
     <link rel="stylesheet" href="CSS/<?= $css_sheet ?>.css">
-    <link rel="stylesheet" href="CSS/<?= $css_sheet2 ?>.css">
+    <?php
+    if (isset($css_sheet2))
+        echo '<link rel="stylesheet" href="CSS/' . $css_sheet2 . '.css">';
+    ?>
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
