@@ -1,6 +1,8 @@
 <?php
 //document à compléter
 session_start();
+require("database.php");
+Database::connect();
 ?>
 
 <!doctype html>

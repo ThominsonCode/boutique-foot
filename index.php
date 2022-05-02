@@ -4,6 +4,7 @@ require('common/header.php');
 
 require("common/navbar.php");
 
+echo '<main>';
 echo '<div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- <div style="display: block; position: absolute; width: 100%; height: 100px; z-index: -1;">
         </div> -->
@@ -35,9 +36,9 @@ echo '<div id="myCarousel" class="carousel slide" data-ride="carousel">
             <span class="fas fa-hand-point-right fa-3x" aria-hidden="true"></span>
             <span class="sr-only">Suivant</span>
         </a>
-    </div>';
+    </div></div>';
 
-require('database.php');
+// require('database.php');
 
 echo '<div id="nouveaute" style="background-color: rgb(211,211,211); padding: 20px">
             <h4>Nouveautés FootClub 2022</h4>
@@ -48,7 +49,7 @@ echo '<div id="nouveaute" style="background-color: rgb(211,211,211); padding: 20
                         <div class="thumbnail">
                             <div>';
 
-$db = Database::connect();
+// $db = Database::connect();
 ?>
 
 
@@ -64,6 +65,12 @@ $db = Database::connect();
         <h3 style="font-size: 100%;">Pantalon OM Football Heritage Bleu</h3>
     </a>
     <button>Ajouter au panier</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -167,12 +174,7 @@ $db = Database::connect();
     <span>© FootClub 2022 Tous droits réservés</span>
 </div>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 </main>
-</body>
-
-</html>
+<?php
+require('common/footer.php');
+?>
