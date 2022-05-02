@@ -4,16 +4,16 @@ $css_sheet = "style";
 require('common/header.php');
 
 require("common/navbar.php");
-if (isset($_SESSION['uid'])) {
-    if (isset($_POST['ajouter-item-id'])) {
+if (isset($_POST['ajouter-item-id'])) {
+    if (isset($_SESSION['uid'])) {
         echo 'AJOUTER un item du panier <br>';
         // echo 'item id : ' . $_POST['ajouter-item-id'];
         // echo 'vous etes : ' . $_SESSION['uid'];
         $statement = $db->prepare('INSERT INTO historique (user, item) values (?,?)');
         $statement->execute(array($_SESSION['uid'], $_POST['ajouter-item-id']));
+    } else {
+        echo '<script>alert("Vous n\'êtes pas connectés. Veuillez vous connecter.");</script>';
     }
-} else {
-    echo '<script>alert("Vous n\'êtes pas connectés. Veuillez vous connecter.");</script>';
 }
 
 
