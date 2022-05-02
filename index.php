@@ -1,5 +1,5 @@
 <?php
- require('header.php');
+require('header.php');
 ?>
 <!doctype html>
 <html lang="fr">
@@ -25,7 +25,7 @@
 
 
     <!--CSS-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 
     <!-- ICONES -->
     <script src="https://kit.fontawesome.com/cfbe1907bd.js" crossorigin="anonymous"></script>
