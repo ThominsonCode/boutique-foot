@@ -91,6 +91,6 @@ if (!isset($_SESSION['user'])) {
                 ?>
             </div>
         </div>
-        <a href="panier/panier.htm"><i class="fas fa-cart-shopping fa-2x" style="color: black;"></i></a>
+        <a href="panier.php"><i class="fas fa-cart-shopping fa-2x" style="color: black;"></i></a>
     </div>
 </nav>
