@@ -104,8 +104,8 @@ if (isset($_POST['ajouter-item-id'])) {
                     <iframe class="carte" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2779.9038853334882!2d1.25658681597062!3d45.83320647910701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f934ba64f155db%3A0xc9be8a78c7adf06b!2sNum%C3%A9ro%2010%20LIMOGES!5e0!3m2!1sen!2sfr!4v1600791155310!5m2!1sen!2sfr" width="100%" height="400">
                     </iframe>
                 </div>
-                <div class="col-sm-6 col-md-6 description">
-                    <h2 id="TitreBoutique">Boutique Officiel du Club</h2>
+                <div class="col-sm-6 col-md-6 description" style="display: flex; flex-direction:column; justify-content:center;">
+                    <h2 id="TitreBoutique">Boutique Officiel du Club</h2><br>
                     <p>
                         &nbsp;
                         <span><u> Adresse :</u> 22 Boulevard Carnot 87000 LIMOGES </span>
