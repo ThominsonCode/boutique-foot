@@ -15,7 +15,7 @@ require("common/navbar.php");
         <input type="text" placeholder="Entrer votre prénom" id="inscription_prenom" name="inscription_prenom" required>
 
         <label for="inscription_email"><b>Adresse email</b></label>
-        <input type="text" placeholder="Entrer votre adresse email" id="inscription_email" name="inscription_email" required>
+        <input type="mail" placeholder="Entrer votre adresse email" id="inscription_email" name="inscription_email" required>
 
         <label for="inscription_mdp"><b>Mot de passe</b></label>
         <input type="password" placeholder="Entrer votre mot de passe" id="inscription_mdp" name="inscription_mdp" required>
@@ -54,9 +54,6 @@ if (isset($_POST['inscription_send'])) {
             ];
             $hashpwd = password_hash($inscription_mdp, PASSWORD_BCRYPT, $options);
 
-            require 'database.php';
-
-            $db = Database::connect();
 
             $statement = $db->prepare("SELECT mail FROM utilisateur WHERE mail = :email");
             $statement->execute(['email' => $inscription_email]);
@@ -83,9 +80,6 @@ if (isset($_POST['inscription_send'])) {
             } else {
                 echo 'alert("Un email existe déjà")';
             }
-
-
-            $db = Database::disconnect();
         }
     } else {
         echo "Les champs ne sont pas tous bien remplies";
