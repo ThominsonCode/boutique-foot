@@ -6,6 +6,55 @@ require("common/navbar.php");
 
 if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
+    if (isset($_POST['ajouter-item-id-sous-categorie']) && isset($_POST['ajouter-item-nom']) && isset($_POST['ajouter-item-prix'])) {
+        echo 'id sous-categorie : ' . $_POST['ajouter-item-id-sous-categorie'] . '<br>';
+        echo 'nom item : ' . $_POST['ajouter-item-nom'] . '<br>';
+        echo 'prix : ' . $_POST['ajouter-item-prix'] . '<br>';
+    }
+
+    if (isset($_POST['modifier-item-id']) && isset($_POST['modifier-item-id-sous-categorie']) && isset($_POST['modifier-item-nouveau-nom'])) {
+        echo 'id item : ' . $_POST['modifier-item-id'] . '<br>';
+        echo 'id sous-categorie : ' . $_POST['modifier-item-id-sous-categorie'] . '<br>';
+        echo 'nouveau nom : ' . $_POST['modifier-item-nouveau-nom'] . '<br>';
+    }
+
+    if (isset($_POST['supprimer-item-id'])) {
+        echo 'id item : ' . $_POST['supprimer-item-id'] . '<br>';
+    }
+
+    if (isset($_POST['ajouter-categorie-nom'])) {
+        echo 'nom categorie : ' . $_POST['ajouter-categorie-nom'] . '<br>';
+    }
+
+    if (isset($_POST['modifier-categorie-id']) && isset($_POST['modifier-categorie-nouveau-nom'])) {
+        echo 'id categorie : ' . $_POST['modifier-categorie-id'] . '<br>';
+        echo 'catégorie nouveau nom : ' . $_POST['modifier-categorie-nouveau-nom'] . '<br>';
+    }
+
+    if (isset($_POST['supprimer-categorie-id'])) {
+        echo 'id categorie : ' . $_POST['supprimer-categorie-id'] . '<br>';
+    }
+
+    if (isset($_POST['ajouter-sous-categorie-id-categorie']) && isset($_POST['ajouter-sous-categorie-nom'])) {
+        echo 'id categorie : ' . $_POST['ajouter-sous-categorie-id-categorie'] . '<br>';
+        echo 'sous-catégorie nouveau nom : ' . $_POST['ajouter-sous-categorie-nom'] . '<br>';
+    }
+
+    if (isset($_POST['modifier-sous-categorie-id']) && isset($_POST['modifier-sous-categorie-id-categorie']) && isset($_POST['modifier-sous-categorie-nouveau-nom'])) {
+        echo 'id sous-categorie : ' . $_POST['modifier-sous-categorie-id'] . '<br>';
+        echo 'id categorie : ' . $_POST['modifier-sous-categorie-id-categorie'] . '<br>';
+        echo 'nouveau nom sous-catégorie : ' . $_POST['modifier-sous-categorie-nouveau-nom'] . '<br>';
+    }
+
+    if (isset($_POST['supprimer-sous-categorie-id'])) {
+        echo 'id sous-categorie : ' . $_POST['supprimer-sous-categorie-id'] . '<br>';
+    }
+
+
+
+
+
+
     $statement = $db->query('SELECT * FROM categorie');
     $categories = $statement->fetchAll();
     $statement = $db->query('SELECT * FROM souscategorie');
@@ -77,7 +126,7 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
                 <h2>Eléments</h2>
                 <hr>
-                <button type="button" class="btn btn-success" style="width: 100%; margin-bottom:10px;">Ajouter</button>
+                <button type="button" class="btn btn-success" style="width: 100%; margin-bottom:10px;" data-toggle="modal" data-target="#modal-ajouter-item">Ajouter</button>
 
                 <div class="tab-content">
 
@@ -91,7 +140,16 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
                         foreach ($items as $item) {
                             if ($item['souscategorie'] == $sous_categorie['id']) {
+                                $c = null;
+                                $c_id = $sous_categorie['categorie'];
+                                foreach ($categories as $categorie) {
+                                    if ($categorie['id'] == $c_id) {
+                                        $c = $categorie;
+                                        break;
+                                    }
+                                }
 
+                                // ==============================================================================
 
                                 echo '
                                 <div class="modal fade bd-example-modal-lg" id="modal-voir-item-' . $item['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -129,6 +187,93 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
     </div>                                
                                 ';
 
+                                // ==============================================================================
+
+
+
+                                echo '<div class="modal fade bd-example-modal-lg" id="modal-modifier-item-' . $item['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Modifier l\'item ' . $item['id'] . '</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                        
+                                            <p>Nom actuel : <strong>' . $item['nom'] . '</strong></p>
+                                            <p>Catégorie actuelle : <strong>' . $c['nom'] . '</strong></p>
+                                            <p>Sous-catégorie actuelle : <strong>' . $sous_categorie['nom'] . '</strong></p>
+                        
+                                            <form action="" method="POST">
+                                                <div class="form-group">
+                                                    <label>Choisir une nouvelle sous-catégorie</label>
+                                                    <select name="modifier-item-id-sous-categorie" class="form-control">';
+
+                                foreach ($categories as $a_categorie) {
+                                    foreach ($sous_categories as $a_sous_categorie) {
+                                        if ($a_sous_categorie['categorie'] == $a_categorie['id']) {
+                                            echo '<option value="' . $a_sous_categorie['id'] . '">' . $a_categorie['nom'] . ' : ' . $a_sous_categorie['nom'] . '</option>';
+                                        }
+                                    }
+                                }
+                                echo '
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Nouveau nom de l\'item</label>
+                                                    <input name="modifier-item-nouveau-nom" type="text" class="form-control" placeholder="Nouveau nom de l\'item">
+                                                </div>
+                                                <input type="hidden" name="modifier-item-id" value="' . $item['id'] . '">
+                        
+                                                <button type="submit" class="btn btn-primary">Valider</button>
+                                            </form>
+                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>';
+
+
+                                // ==============================================================================
+
+
+                                echo '<div class="modal fade bd-example-modal-lg" id="modal-supprimer-item-' . $item['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">SUPPRIMER l\'item ' . $item['id'] . '</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h2>Etes-vous sûr de vouloir supprimer cet item ?</h2>
+            <p>' . $item['nom'] . '</p>
+            <form action="" method="POST">
+                <div class="form-group">
+                <input type="hidden" name="supprimer-item-id" value="' . $item['id'] . '">
+                        
+                <button type="submit" class="btn btn-primary">Valider</button></div>
+             </form>
+
+             </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+    </div>
+</div>
+</div>';
+
+
+                                // ==============================================================================
+
+
+
                                 echo '<div class="admin-list-element">';
                                 echo '<p>' . $item['nom'] . '</p>';
 
@@ -136,8 +281,8 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
                                 echo '<div class="boutons">
                                 <a class="btn-voir" type="button" data-toggle="modal" data-target="#modal-voir-item-' . $item['id'] . '"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier" type="button" data-toggle="modal" data-target="#modal-modifier-item-5"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-modifier" type="button" data-toggle="modal" data-target="#modal-modifier-item-' . $item['id'] . '"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer" type="button" data-toggle="modal" data-target="#modal-supprimer-item-' . $item['id'] . '"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>';
 
 
@@ -193,7 +338,7 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                     <form action="" method="POST">
                         <div class="form-group">
                             <label>Nom de la catégorie</label>
-                            <input name="nom-categorie" type="text" class="form-control" placeholder="Nom de la catégorie">
+                            <input name="ajouter-categorie-nom" type="text" class="form-control" placeholder="Nom de la catégorie">
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </form>
@@ -219,17 +364,17 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                     <form action="" method="POST">
                         <div class="form-group">
                             <label>Choisir une catégorie</label>
-                            <select name="ancien-nom" class="form-control">
+                            <select name="modifier-categorie-id" class="form-control">
                                 <?php
                                 foreach ($categories as $categorie) {
-                                    echo '<option>' . $categorie['nom'] . '</option>';
+                                    echo '<option value="' . $categorie['id'] . '">' . $categorie['nom'] . '</option>';
                                 }
                                 ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Nouveau nom de la catégorie</label>
-                            <input name="nom-categorie" type="text" class="form-control" placeholder="Nom de la catégorie">
+                            <input name="modifier-categorie-nouveau-nom" type="text" class="form-control" placeholder="Nom de la catégorie">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Valider</button>
@@ -256,10 +401,10 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                     <form action="" method="POST">
                         <div class="form-group">
                             <label>Choisissez une catégorie</label>
-                            <select name="categorie-a-supprimer" class="form-control">
+                            <select name="supprimer-categorie-id" class="form-control">
                                 <?php
                                 foreach ($categories as $categorie) {
-                                    echo '<option>' . $categorie['nom'] . '</option>';
+                                    echo '<option value="' . $categorie['id'] . '">' . $categorie['nom'] . '</option>';
                                 }
                                 ?>
                             </select>
@@ -288,17 +433,17 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                     <form action="" method="POST">
                         <div class="form-group">
                             <label>Catégorie parente</label>
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select name="ajouter-sous-categorie-id-categorie" class="form-control">
+                                <?php
+                                foreach ($categories as $categorie) {
+                                    echo '<option value="' . $categorie['id'] . '">' . $categorie['nom'] . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Nom de la sous-catégorie</label>
-                            <input name="nom-sous-categorie" type="text" class="form-control" placeholder="Nom de la sous-catégorie">
+                            <input name="ajouter-sous-categorie-nom" type="text" class="form-control" placeholder="Nom de la sous-catégorie">
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </form>
@@ -324,17 +469,31 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                     <form action="" method="POST">
                         <div class="form-group">
                             <label>Choisir une sous-catégorie</label>
-                            <select name="ancien-nom-sous-categorie" class="form-control">
+                            <select name="modifier-sous-categorie-id" class="form-control">
                                 <?php
-                                foreach ($sous_categories as $sous_categorie) {
-                                    echo '<option value="' . $sous_categorie['id'] . '">' . $categories[$sous_categorie['categorie']]['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                foreach ($categories as $categorie) {
+                                    foreach ($sous_categories as $sous_categorie) {
+                                        if ($sous_categorie['categorie'] == $categorie['id']) {
+                                            echo '<option value="' . $sous_categorie['id'] . '">' . $categorie['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                        }
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nouvelle catégorie parente</label>
+                            <select name="modifier-sous-categorie-id-categorie" class="form-control">
+                                <?php
+                                foreach ($categories as $categorie) {
+                                    echo '<option value="' . $categorie['id'] . '">' . $categorie['nom'] . '</option>';
                                 }
                                 ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Nouveau nom de la sous-catégorie</label>
-                            <input name="nom-sous-categorie" type="text" class="form-control" placeholder="Nom de la sous-catégorie">
+                            <input name="modifier-sous-categorie-nouveau-nom" type="text" class="form-control" placeholder="Nom de la sous-catégorie">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Valider</button>
@@ -361,10 +520,14 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                     <form action="" method="POST">
                         <div class="form-group">
                             <label>Choisissez une sous-catégorie</label>
-                            <select name="sous-categorie-a-supprimer" class="form-control">
+                            <select name="supprimer-sous-categorie-id" class="form-control">
                                 <?php
-                                foreach ($sous_categories as $sous_categorie) {
-                                    echo '<option value="' . $sous_categorie['id'] . '">' . $categories[$sous_categorie['categorie']]['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                foreach ($categories as $categorie) {
+                                    foreach ($sous_categories as $sous_categorie) {
+                                        if ($sous_categorie['categorie'] == $categorie['id']) {
+                                            echo '<option value="' . $sous_categorie['id'] . '">' . $categorie['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                        }
+                                    }
                                 }
                                 ?>
                             </select>
@@ -379,64 +542,21 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
         </div>
     </div>
 
-
-    <!-- Modifier un item -->
-    <div class="modal fade bd-example-modal-lg" id="modal-modifier-item-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Ajouter item -->
+    <div class="modal fade bd-example-modal-lg" id="modal-ajouter-item" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modifier l'item 5</h5>
+                    <h5 class="modal-title">AJOUTER un item</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-
-                    <?php
-                    $i_id = 5;
-                    $i = null;
-
-                    $sc_id = 0;
-                    $sc = null;
-
-                    $c_id = 0;
-                    $c = null;
-
-                    foreach ($items as $item) {
-                        if ($item['id'] == $i_id) {
-                            $i = $item;
-                            break;
-                        }
-                    }
-
-                    $sc_id = $i['souscategorie'];
-
-                    foreach ($sous_categories as $sous_categorie) {
-                        if ($sous_categorie['id'] == $sc_id) {
-                            $sc = $sous_categorie;
-                            break;
-                        }
-                    }
-
-                    $c_id = $sc['categorie'];
-
-                    foreach ($categories as $categorie) {
-                        if ($categorie['id'] == $c_id) {
-                            $c = $categorie;
-                            break;
-                        }
-                    }
-
-
-                    ?>
-
-                    <p>Catégorie actuelle : <strong><?= $c['nom']; ?></strong></p>
-                    <p>Sous-catégorie actuelle : <strong><?= $sc['nom']; ?></strong></p>
-
                     <form action="" method="POST">
                         <div class="form-group">
-                            <label>Choisir une nouvelle sous-catégorie</label>
-                            <select name="ancien-nom-sous-categorie" class="form-control">
+                            <label>Sous-catégorie :</label>
+                            <select name="ajouter-item-id-sous-categorie" class="form-control">
                                 <?php
                                 foreach ($categories as $categorie) {
                                     foreach ($sous_categories as $sous_categorie) {
@@ -449,13 +569,15 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Nouveau nom de l'item</label>
-                            <input name="nouveau-nom-item" type="text" class="form-control" placeholder="Nouveau nom de l'item">
+                            <label>Nom de l'item</label>
+                            <input name="ajouter-item-nom" type="text" class="form-control" placeholder="Nom de l'item">
                         </div>
-
+                        <div class="form-group">
+                            <label>Prix</label>
+                            <input name="ajouter-item-prix" type="text" class="form-control" placeholder="Nom de la sous-catégorie">
+                        </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </form>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
@@ -464,6 +586,15 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
         </div>
     </div>
 
+
+
+
+
+<?php
+} else {
+?>
+    <h1>Vous n'avez pas les permissions requises pour voir cette page. <br> Veuillez vous connecter.</h1>
+    <div style="display: block; height:400px"></div>
 <?php
 }
 require('common/footer.php');

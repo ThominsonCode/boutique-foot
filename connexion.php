@@ -32,9 +32,9 @@ if (isset($_POST['connexion_send'])) {
             $_SESSION['user'] = $connexion_mail;
             $_SESSION['uid'] = $result['id'];
             // echo $_SESSION['uid'];
-            echo "Le mot de passe est bon, connection en cours";
+            echo "<script>alert('Le mot de passe est bon, connection en cours');</script>";
         } else {
-            echo "L'adresse mail portant l'email " . $connexion_mail . " n'existe pas !";
+            echo "<script>alert('L\'adresse mail portant l'email " . $connexion_mail . " n'existe pas !');</script>";
         }
     } else {
         echo "Les champs ne sont pas tous bien remplies";
