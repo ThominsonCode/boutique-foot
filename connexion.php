@@ -22,13 +22,27 @@ if (isset($_POST['connexion_send'])) {
 
     if (!empty($connexion_mdp) && !empty($connexion_mail)) {
 
+        $mail_valide = false;
+        $statement = $db->prepare("SELECT mail FROM utilisateur");
+        $statement->execute(array());
+        $mails = $statement->fetchAll();
+        // var_dump($mails);
+        foreach ($mails as $mail) {
+            $mail = $mail[0];
+            if ($connexion_mail == $mail) {
+                $mail_valide = true;
+            }
+            // echo $mail_valide ? "oui" : "non" . '<br>';
+        }
+
+
 
         $statement = $db->prepare("SELECT * FROM utilisateur WHERE mail = :email");
         $statement->execute(['email' => $connexion_mail]);
 
         $result =   $statement->fetch();
 
-        if (password_verify($connexion_mdp, $result['mot_de_passe'])) {
+        if ($mail_valide && password_verify($connexion_mdp, $result['mot_de_passe'])) {
             $_SESSION['user'] = $connexion_mail;
             $_SESSION['uid'] = $result['id'];
             // echo $_SESSION['uid'];
