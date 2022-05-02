@@ -105,19 +105,19 @@ require("common/navbar.php");
                 if ($item['souscategorie'] == $_GET['id']) {
                     echo
                     '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="thumbnail">
-                    <div>
-                        <img alt="' . $item['nom'] . '"src="image/' . $item['image'] . '" width="200px;" height="200px;">
-                        <p class="prix">' . number_format($item['prix'], 2, '.', '') . ' €</p>
-                    </div>
-                    <div class="caption">
-                        <a href="#">
-                            <h3 style="text-transform : uppercase;" style="font-size: 100%;">' . $item['nom'] . '</h3>
-                        </a>
-                        <button width="200px;" height="200px;" >Ajouter au panier</button>
-                    </div>
-                </div>
-            </div>';
+                        <div class="thumbnail">
+                            <div>
+                                <img alt="' . $item['nom'] . '"src="image/' . $item['image'] . '" width="200px;" height="200px;">
+                                <p class="prix">' . number_format($item['prix'], 2, '.', '') . ' €</p>
+                            </div>
+                            <div class="caption">
+                                <a href="#">
+                                    <h3 style="text-transform : uppercase;" style="font-size: 100%;">' . $item['nom'] . '</h3>
+                                </a>
+                                <button width="200px;" height="200px;" >Ajouter au panier</button>
+                            </div>
+                        </div>
+                    </div>';
                 }
             }
             echo '</div>
