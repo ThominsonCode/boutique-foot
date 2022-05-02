@@ -41,13 +41,16 @@ $items = $statement->fetchAll();
             ?>
         </ul>
     </div>
-
+    
     <div class="nav-icons">
         <a href="connexion.php"><i class="fas fa-user fa-2x" style="color: black;"></i></a>
         <div class="block">
             <div class="circle">
                 <?php
-                echo '<p style="text-transform: uppercase;">' . $_SESSION['user'][0] . '</p>';
+                echo '
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <p style="text-transform: uppercase;">fethi' . $_SESSION['user'][0] . '</p>
+                </div>';
                 ?>
             </div>
         </div>
