@@ -378,11 +378,11 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                         <div class="form-group">
                             <label>Catégorie parente</label>
                             <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                                <?php
+                                foreach ($categories as $categorie) {
+                                    echo '<option>' . $categorie['nom'] . '</option>';
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -415,8 +415,22 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                             <label>Choisir une sous-catégorie</label>
                             <select name="ancien-nom-sous-categorie" class="form-control">
                                 <?php
-                                foreach ($sous_categories as $sous_categorie) {
-                                    echo '<option value="' . $sous_categorie['id'] . '">' . $categories[$sous_categorie['categorie']]['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                foreach ($categories as $categorie) {
+                                    foreach ($sous_categories as $sous_categorie) {
+                                        if ($sous_categorie['categorie'] == $categorie['id']) {
+                                            echo '<option value="' . $sous_categorie['id'] . '">' . $categorie['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                        }
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nouvelle catégorie parente</label>
+                            <select name="ancien-nom-sous-categorie" class="form-control">
+                                <?php
+                                foreach ($categories as $categorie) {
+                                    echo '<option value="' . $categorie['id'] . '">' . $categorie['nom'] . '</option>';
                                 }
                                 ?>
                             </select>
@@ -452,8 +466,12 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                             <label>Choisissez une sous-catégorie</label>
                             <select name="sous-categorie-a-supprimer" class="form-control">
                                 <?php
-                                foreach ($sous_categories as $sous_categorie) {
-                                    echo '<option value="' . $sous_categorie['id'] . '">' . $categories[$sous_categorie['categorie']]['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                foreach ($categories as $categorie) {
+                                    foreach ($sous_categories as $sous_categorie) {
+                                        if ($sous_categorie['categorie'] == $categorie['id']) {
+                                            echo '<option value="' . $sous_categorie['id'] . '">' . $categorie['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
+                                        }
+                                    }
                                 }
                                 ?>
                             </select>
@@ -470,6 +488,11 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
 
 
+<?php
+} else {
+?>
+    <h1>Vous n'avez pas les permissions requises pour voir cette page. <br> Veuillez vous connecter.</h1>
+    <div style="display: block; height:400px"></div>
 <?php
 }
 require('common/footer.php');
