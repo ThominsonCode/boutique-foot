@@ -1,11 +1,17 @@
 <?php
+
 $css_sheet = "style";
 require('common/header.php');
 
 require("common/navbar.php");
+
 ?>
+
 <main>
 
+    <?php
+    if (!isset($_GET['id'])) {
+        echo '
     <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin : auto 277px;">
 
         <ol class="carousel-indicators">
@@ -38,13 +44,12 @@ require("common/navbar.php");
     <div id="nouveaute" style="background-color: rgb(211,211,211); padding: 20px">
         <h4>Nouveautés FootClub 2022</h4>
         <p>Retrouvez les nouveaux produits officiels FootClub 2022</p>
-        <div class="row">
-            <?php
-            $statement = $db->query('SELECT * FROM item WHERE id = 25 OR id = 3 OR id = 37 OR id = 47');
-            $items = $statement->fetchAll();
+        <div class="row">';
+        $statement = $db->query("SELECT * FROM item WHERE id = 25 OR id = 3 OR id = 37 OR id = 47");
+        $items = $statement->fetchAll();
 
-            foreach ($items as $item) {
-                echo '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        foreach ($items as $item) {
+            echo '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="container">
                     <div class="thumbnail">
                         <div>
@@ -61,8 +66,8 @@ require("common/navbar.php");
                     </div>
                 </div>
             </div>';
-            }
-            ?>
+        }
+        echo '
         </div>
     </div>
 
@@ -70,11 +75,11 @@ require("common/navbar.php");
     <div class="red">
         <div class="maps">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-sm-6">
                     <iframe class="carte" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2779.9038853334882!2d1.25658681597062!3d45.83320647910701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f934ba64f155db%3A0xc9be8a78c7adf06b!2sNum%C3%A9ro%2010%20LIMOGES!5e0!3m2!1sen!2sfr!4v1600791155310!5m2!1sen!2sfr" width="100%" height="400">
                     </iframe>
                 </div>
-                <div class="col-lg-6 description">
+                <div class="col-sm-6 description">
                     <h2 id="TitreBoutique">Boutique Officiel du Club</h2>
                     <p>
                         &nbsp;
@@ -83,40 +88,45 @@ require("common/navbar.php");
                 </div>
             </div>
         </div>
-    </div>
+    </div>';
+    } else {
+        $statement = $db->query('SELECT * FROM souscategorie');
+        $souscategories = $statement->fetchAll();
 
-    <?php
-    $statement = $db->query('SELECT * FROM souscategorie');
-    $souscategories = $statement->fetchAll();
+        echo '<div class="tab-content">';
 
-    echo '<div class="tab-content">';
+        foreach ($souscategories as $souscategory) {
+            echo '<div class="row">';
 
-    foreach ($souscategories as $souscategory) {
-        echo '<div class="tab-pane" id="' . $souscategory['id'] . '">';
-
-        echo '<div class="row">';
-
-        $statement = $db->prepare('SELECT * FROM item WHERE item.souscategorie = ?');
+            $statement = $db->prepare('SELECT * FROM item WHERE item.souscategorie = ?');
             $statement->execute(array($souscategory['id']));
 
             while ($item = $statement->fetch()) {
-                echo
-                '<div class="col-xs-12 col-md-6">
+                if ($item['souscategorie'] == $_GET['id']) {
+                    echo
+                    '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="thumbnail">
-                        <img src="image/' . $item['image'] . '" alt="' . $item['nom'] . '">
-                        <div class="price">' . number_format($item['prix'], 2, '.', '') . ' €</div>
-                        <div class="caption">
-                            <h4>' . $item['nom'] . '</h4>
-                            <a href="#" class="btn btn-order" role="button" data-toggle="modal" data-target="#modal' . $item['id'] . '"> Voir le détail</a>
-                        </div>  
+                    <div>
+                        <img alt="' . $item['nom'] . '"src="image/' . $item['image'] . '" width="200px;" height="200px;">
+                        <p class="prix">' . number_format($item['prix'], 2, '.', '') . ' €</p>
                     </div>
-                </div>';
+                    <div class="caption">
+                        <a href="#">
+                            <h3 style="text-transform : uppercase;" style="font-size: 100%;">' . $item['nom'] . '</h3>
+                        </a>
+                        <button width="200px;" height="200px;" >Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>';
+                }
             }
-        echo '</div>
+            echo '</div>
         </div>';
+        }
+        echo '</div>';
     }
-    echo '</div>';
     ?>
+
 
     <?php
     require('common/footer.php');

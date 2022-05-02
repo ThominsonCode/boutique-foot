@@ -15,7 +15,7 @@ $items = $statement->fetchAll();
 
 <h1>Votre panier</h1>
 <?php
-$statement = $db->query('SELECT * FROM item WHERE id = 25');
+$statement = $db->query('SELECT * FROM item WHERE id = 32');
 $items = $statement->fetchAll();
 
 foreach ($items as $item) {

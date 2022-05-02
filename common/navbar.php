@@ -27,20 +27,21 @@ $items = $statement->fetchAll();
         <ul class="navbar-nav mr-auto">
             <?php
             foreach ($categories as $categorie) {
-                echo '<li class="nav-item dropdown">
-                <a style="text-transform : uppercase;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown-homme" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                echo '<li class="nav-item dropdown" role="presentation" data-genres="' . $categorie['id'] . '">
+                <a style="text-transform : uppercase;" class="nav-link dropdown-toggle" href="#' . $categorie['id'] . '" data-toggle="dropdown">';
                 echo $categorie['nom'];
                 echo '</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">';
 
                 foreach ($sous_categories as $sous_categorie) {
                     if ($sous_categorie['categorie'] == $categorie['id']) {
-                        echo '<a class="dropdown-item" href="#">' . $sous_categorie['nom'] . '</a>';
+                        echo '<a class="dropdown-item" href="index.php?id=' . $sous_categorie['id'] . '">' . $sous_categorie['nom'] . '</a>';
                     }
                 }
                 echo '</div>
                 </li>';
             }
+
             ?>
         </ul>
     </div>
