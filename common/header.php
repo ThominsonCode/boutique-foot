@@ -2,7 +2,7 @@
 //document à compléter
 session_start();
 require("database.php");
-Database::connect();
+$db = Database::connect();
 ?>
 
 <!doctype html>

@@ -4,134 +4,16 @@ require('common/header.php');
 
 require("common/navbar.php");
 
-if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
+if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
+
+    $statement = $db->query('SELECT * FROM categorie');
+    $categories = $statement->fetchAll();
+    $statement = $db->query('SELECT * FROM souscategorie');
+    $sous_categories = $statement->fetchAll();
+    $statement = $db->query('SELECT * FROM item');
+    $items = $statement->fetchAll();
+
 ?>
-
-    <?php
-
-    //     require 'database.php';
-
-    //     $db = Database::connect();
-    //     $statement = $db->query('SELECT items.id, items.name, items.description, items.price, categories.name AS category
-    // FROM items LEFT JOIN categories ON items.category = categories.id
-    // ORDER BY items.id DESC');
-
-    // while ($item = $statement->fetch()) {
-    //     echo '<tr>';
-    //     echo '<td>' . $item['name'] . '</td>';
-    //     echo '<td>' . $item['description'] . '</td>';
-    //     echo '<td>' . number_format((float)$item['price'], 2, '.', '') . '€</td>';
-    //     echo '<td>' . $item['category'] . '</td>';
-    //     echo '<td width=300>';
-    //     echo '<a class="btn btn-default" href="view.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-eye-open"></span> Voir</a> ';
-    //     echo '<a class="btn btn-primary" href="update.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-pencil"></span> Modifier</a> ';
-    //     echo '<a class="btn btn-danger" href="delete.php?id=' . $item['id'] . '"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>';
-    //     echo '</td>';
-    //     echo '</tr>';
-    // }
-
-    // Database::disconnect();
-
-    //-----------------------------------------------------------
-    // require 'database.php';
-    // $categories = [$db->query('');]
-    // $sous_categories = $db->query('');
-    // $items = $db->query('');
-
-
-    $categories = [
-        [
-            'id' => 0,
-            'nom' => 'homme'
-        ],
-        [
-            'id' => 1,
-            'nom' => 'femme'
-        ],
-        [
-            'id' => 2,
-            'nom' => 'enfant'
-        ]
-    ];
-    $sous_categories = [
-        [
-            'id' => 0,
-            'categorie' => 0,
-            'nom' => 'homme-1'
-        ],
-        [
-            'id' => 1,
-            'categorie' => 0,
-            'nom' => 'homme-2'
-        ],
-        [
-            'id' => 2,
-            'categorie' => 1,
-            'nom' => 'femme-1'
-        ],
-        [
-            'id' => 3,
-            'categorie' => 1,
-            'nom' => 'femme-2'
-        ],
-        [
-            'id' => 4,
-            'categorie' => 2,
-            'nom' => 'enfant-1'
-        ],
-        [
-            'id' => 5,
-            'categorie' => 2,
-            'nom' => 'enfant-2'
-        ]
-    ];
-    $items = [
-        [
-            'id' => 0,
-            'sous-categorie' => 0,
-            'nom' => 'item 1',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 1,
-            'sous-categorie' => 0,
-            'nom' => 'item 2',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 2,
-            'sous-categorie' => 1,
-            'nom' => 'item 3',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 3,
-            'sous-categorie' => 2,
-            'nom' => 'item 4',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 4,
-            'sous-categorie' => 3,
-            'nom' => 'item 5',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 5,
-            'sous-categorie' => 4,
-            'nom' => 'item 6',
-            'prix' => '15.5'
-        ],
-        [
-            'id' => 6,
-            'sous-categorie' => 5,
-            'nom' => 'item 7',
-            'prix' => '15.5'
-        ]
-    ];
-
-
-    ?>
 
     <div class="container" style="margin-top: 30px;">
         <div class="row">
@@ -144,7 +26,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
                 <div class="list-group" id="list-tab">
                     <?php
                     foreach ($categories as $categorie) {
-                        if ($categorie['id'] == 0) {
+                        if ($categorie['id'] == 1) {
                             echo '<button data-toggle="list" href="#categorie-' . $categorie['id'] . '" type="button" class="btn-admin active"><span>' . $categorie['nom'] . '</span></button>';
                         } else {
                             echo '<button data-toggle="list" href="#categorie-' . $categorie['id'] . '" type="button" class="btn-admin"><span>' . $categorie['nom'] . '</span></button>';
@@ -160,7 +42,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
                 <div class="tab-content liste-sous-categories">
                     <?php
                     foreach ($categories as $categorie) {
-                        if ($categorie['id'] == 0) {
+                        if ($categorie['id'] == 1) {
                             echo '<div id="categorie-' . $categorie['id'] . '" class="tab-pane fade show active">';
                         } else {
                             echo '<div id="categorie-' . $categorie['id'] . '" class="tab-pane fade show">';
@@ -168,7 +50,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
                         echo '<div class="list-group">';
                         foreach ($sous_categories as $sous_categorie) {
                             if ($sous_categorie['categorie'] == $categorie['id']) {
-                                if ($sous_categorie['id'] == 0) {
+                                if ($sous_categorie['id'] == 1) {
                                     echo '<button data-toggle="list" href="#sous-categorie-' . $sous_categorie['id'] . '" type="button" class="btn-admin active"><span>' . $sous_categorie['nom'] . '</span></button>';
                                 } else {
                                     echo '<button data-toggle="list" href="#sous-categorie-' . $sous_categorie['id'] . '" type="button" class="btn-admin"><span>' . $sous_categorie['nom'] . '</span></button>';
@@ -201,22 +83,64 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
 
                     <?php
                     foreach ($sous_categories as $sous_categorie) {
-                        if ($sous_categorie['id'] == 0) {
+                        if ($sous_categorie['id'] == 1) {
                             echo '<div id="sous-categorie-' . $sous_categorie['id'] . '" class="tab-pane fade show active">';
                         } else {
                             echo '<div id="sous-categorie-' . $sous_categorie['id'] . '" class="tab-pane fade show">';
                         }
 
                         foreach ($items as $item) {
-                            if ($item['sous-categorie'] == $sous_categorie['id']) {
+                            if ($item['souscategorie'] == $sous_categorie['id']) {
+
+
+                                echo '
+                                <div class="modal fade bd-example-modal-lg" id="modal-voir-item-' . $item['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">VOIR l\'item ' . $item['id'] . '</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h2>Nom de l\'item :</h2>
+                            <p>' . $item['nom'] . '</p>
+                            <h2>Prix de l\'item :</h2>
+                            <p>prix : ' . number_format($item['prix'], 2, '.', '') . ' €</p>
+                            <h2>Catégorie :</h2>
+                            <p>' . $categorie['nom'] . '</p>
+                            <h2>Sous-catégorie :</h2>
+                            <p>' . $sous_categorie['nom'] . '</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <img src="Image/' . $item['image'] . '" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>                                
+                                ';
+
                                 echo '<div class="admin-list-element">';
                                 echo '<p>' . $item['nom'] . '</p>';
 
+
+
                                 echo '<div class="boutons">
-                                <a href="" class="btn-voir"><i class="fas fa-eye"></i>&nbsp; Voir</a>
+                                <a class="btn-voir" type="button" data-toggle="modal" data-target="#modal-voir-item-' . $item['id'] . '"><i class="fas fa-eye"></i>&nbsp; Voir</a>
                                 <a href="" class="btn-modifier"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
                                 <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>';
+
+
 
                                 echo '</div>';
                             }
@@ -454,6 +378,39 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
             </div>
         </div>
     </div>
+
+
+    <!-- Voir un item -->
+    <div class="modal fade bd-example-modal-lg" id="modal-modifier-item-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">VOIR l'item 5</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                            <h2>Thomas</h2>
+                            <p>prix : 50000€</p>
+                            <p>sous-catégorie</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <img src="Image/casquette2.png" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <?php
 }
+require('common/footer.php');
 ?>

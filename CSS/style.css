@@ -123,7 +123,6 @@ main {
 
 .divCarousel {
     height: 100%;
-    padding: 0px;
 }
 
 .carousel-inner {
@@ -139,6 +138,10 @@ main {
 }
 
 /*Nouveauté*/
+
+h3{
+    font-size: 20px;
+}
 
 .container {
     position: relative;

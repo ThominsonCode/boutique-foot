@@ -9,6 +9,8 @@ require("common/navbar.php");
 <h4>Prix: 79.90€</h4>
 <h3>Vans Les Limougeauds</h3>
 
+<p>Lubin</p>
+
 
 <?php require('common/footer.php') ?>
 
