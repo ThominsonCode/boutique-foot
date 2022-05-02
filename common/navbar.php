@@ -23,8 +23,6 @@ $items = $statement->fetchAll();
 
     <a href="index.php"> <img style="width: 100px;" href="#" src="Image/Logo_Club.png" alt="Logo_Club"></a>
 
-    <!-- <a class="navbar-brand" href="#">LaBoutique</a> -->
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <?php
@@ -53,7 +51,6 @@ $items = $statement->fetchAll();
             <div class="circle">
                 <?php
                 echo '<p style="text-transform: uppercase;">' . $_SESSION['user'][0] . '</p>';
-
                 ?>
             </div>
         </div>

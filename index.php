@@ -3,100 +3,67 @@ $css_sheet = "style";
 require('common/header.php');
 
 require("common/navbar.php");
-
 ?>
 <main>;
+
     <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin : auto 277px;">
 
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="Image/limoges.png" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="Image/football.jpg" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="Image/boutique.png" alt="...">
-                </div>
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="Image/limoges.png" alt="...">
             </div>
-
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <span class="fas fa-hand-point-left fa-3x" aria-hidden="true"></span>
-                <span class="sr-only">Précédent</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span class="fas fa-hand-point-right fa-3x" aria-hidden="true"></span>
-                <span class="sr-only">Suivant</span>
-            </a>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="Image/football.jpg" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="Image/boutique.png" alt="...">
+            </div>
         </div>
-    </div>';
+
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="fas fa-hand-point-left fa-3x" aria-hidden="true"></span>
+            <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="fas fa-hand-point-right fa-3x" aria-hidden="true"></span>
+            <span class="sr-only">Suivant</span>
+        </a>
+    </div>
 
     <div id="nouveaute" style="background-color: rgb(211,211,211); padding: 20px">
         <h4>Nouveautés FootClub 2022</h4>
         <p>Retrouvez les nouveaux produits officiels FootClub 2022</p>
         <div class="row">
-            <div class="col-sm-6 col-md-4">
+            <?php
+            $statement = $db->query('SELECT * FROM item WHERE id = 25 OR id = 3 OR id = 37 OR id = 47');
+            $items = $statement->fetchAll();
+
+            foreach ($items as $item) {
+                echo '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="container">
                     <div class="thumbnail">
                         <div>
-                            <a href="/pantalon-om-football-heritage-bleu-520670h"">
-                                <img alt=" Pantalon OM Football Heritage Bleu" src="https://api.prod.panini.cloud/pub/media/catalog/product/resized/300/5/2/520670h.jpg" width="50%">
-                                <p class="prix">80,00€</p>
+                            <img alt="' . $item['nom'] . '"src="image/' . $item['image'] . '" width="300px;" height="300px;">
+                            <p class=" prix">' . number_format($item['prix'], 2, '.', '') . ' €</p>
                             </a>
                             <p class="new">Nouveauté</p>
                         </div>
                         <div class="caption">
                             <a href="#">
-                                <h3 style="font-size: 100%;">Pantalon OM Football Heritage Bleu</h3>
+                                <h3 style="text-transform : uppercase;" style="font-size: 100%;">' . $item['nom'] . '</h3>
                             </a>
                             <button>Ajouter au panier</button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="container">
-                    <div class="thumbnail">
-                        <div>
-                            <a href="/pantalon-om-football-heritage-bleu-520670h"">
-                                <img alt=" Pantalon OM Football Heritage Bleu" src="https://api.prod.panini.cloud/pub/media/catalog/product/resized/300/5/2/520670h.jpg" width="50%">
-                                <p class="prix">80,00€</p>
-                            </a>
-                            <p class="new">Nouveauté</p>
-                        </div>
-                        <div class="caption">
-                            <a href="#">
-                                <h3 style="font-size: 100%;">Pantalon OM Football Heritage Bleu</h3>
-                            </a>
-                            <button>Ajouter au panier</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="container">
-                    <div class="thumbnail">
-                        <div>
-                            <a href="/pantalon-om-football-heritage-bleu-520670h"">
-                                <img alt=" Pantalon OM Football Heritage Bleu" src="https://api.prod.panini.cloud/pub/media/catalog/product/resized/300/5/2/520670h.jpg" width="50%">
-                                <p class="prix">80,00€</p>
-                            </a>
-                            <p class="new">Nouveauté</p>
-                        </div>
-                        <div class="caption">
-                            <a href="#">
-                                <h3 style="font-size: 100%;">Pantalon OM Football Heritage Bleu</h3>
-                            </a>
-                            <button>Ajouter au panier</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>';
+            }
+            ?>
         </div>
     </div>
 
@@ -119,7 +86,7 @@ require("common/navbar.php");
         </div>
     </div>
 
-
+    
 
     <?php
     require('common/footer.php');
