@@ -20,7 +20,7 @@ $items = $statement->fetchAll();
 
 foreach ($items as $item) {
     echo '<img width="200px;" height="200px;" src="image/' . $item['image'] . '">
-                <h4>Prix: ' . number_format($item['prix'], 2, '.', '') . ' €</h4>
+                <h4>Prix : ' . number_format($item['prix'], 2, '.', '') . ' €</h4>
                 <h3>' . $item['nom'] . '</h3>';
 }
 ?>
