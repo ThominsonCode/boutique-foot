@@ -56,9 +56,9 @@ if (isset($_POST['ajouter-item-id'])) {
         $statement = $db->query("SELECT * FROM item WHERE id = 25 OR id = 3 OR id = 37 OR id = 47");
         $items = $statement->fetchAll();
 
-        echo '<div class="container-fluid"><div class="row">';
+        // echo '<div class="container-fluid"><div class="row">';
         foreach ($items as $item) {
-            echo '<div class="col-sm-6 col-md-6 col-lg-3">
+            echo '
             <div style="margin:50px 0px" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="container">
                     <div class="thumbnail">
@@ -81,10 +81,10 @@ if (isset($_POST['ajouter-item-id'])) {
                         </div>
                     </div>
                 </div>
-                </div></div>';
+                </div>';
         }
-        echo '</div>';
-        echo '</div>';
+        // echo '</div>';
+        // echo '</div>';
         echo '
         </div>
     </div>
