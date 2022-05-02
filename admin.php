@@ -130,6 +130,9 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
         ]
     ];
 
+    $statement = $db->query('SELECT * FROM categorie');
+    $categories = $statement->fetchAll();
+
 
     ?>
 
