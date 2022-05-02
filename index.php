@@ -24,7 +24,7 @@ if (isset($_SESSION['uid']) && isset($_POST['ajouter-item-id'])) {
     <?php
     if (!isset($_GET['id'])) {
         echo '
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin : auto 277px;">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin : auto 17%;">
 
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
