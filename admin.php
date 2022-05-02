@@ -91,7 +91,16 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
                         foreach ($items as $item) {
                             if ($item['souscategorie'] == $sous_categorie['id']) {
+                                $c = null;
+                                $c_id = $sous_categorie['categorie'];
+                                foreach ($categories as $categorie) {
+                                    if ($categorie['id'] == $c_id) {
+                                        $c = $categorie;
+                                        break;
+                                    }
+                                }
 
+                                // ==============================================================================
 
                                 echo '
                                 <div class="modal fade bd-example-modal-lg" id="modal-voir-item-' . $item['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -129,6 +138,86 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
     </div>                                
                                 ';
 
+                                // ==============================================================================
+
+
+
+                                echo '<div class="modal fade bd-example-modal-lg" id="modal-modifier-item-' . $item['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Modifier l\'item ' . $item['id'] . '</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                        
+                                            <p>Nom actuel : <strong>' . $item['nom'] . '</strong></p>
+                                            <p>Catégorie actuelle : <strong>' . $c['nom'] . '</strong></p>
+                                            <p>Sous-catégorie actuelle : <strong>' . $sous_categorie['nom'] . '</strong></p>
+                        
+                                            <form action="" method="POST">
+                                                <div class="form-group">
+                                                    <label>Choisir une nouvelle sous-catégorie</label>
+                                                    <select name="ancien-nom-sous-categorie" class="form-control">';
+
+                                foreach ($categories as $a_categorie) {
+                                    foreach ($sous_categories as $a_sous_categorie) {
+                                        if ($a_sous_categorie['categorie'] == $a_categorie['id']) {
+                                            echo '<option value="' . $a_sous_categorie['id'] . '">' . $a_categorie['nom'] . ' : ' . $a_sous_categorie['nom'] . '</option>';
+                                        }
+                                    }
+                                }
+                                echo '
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Nouveau nom de l\'item</label>
+                                                    <input name="nouveau-nom-item" type="text" class="form-control" placeholder="Nouveau nom de l\'item">
+                                                </div>
+                        
+                                                <button type="submit" class="btn btn-primary">Valider</button>
+                                            </form>
+                        
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>';
+
+
+                                // ==============================================================================
+
+
+                                echo '<div class="modal fade bd-example-modal-lg" id="modal-supprimer-item-' . $item['id'] . '" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">SUPPRIMER l\'item ' . $item['id'] . '</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h2>Etes-vous sûr de vouloir supprimer cet item ?</h2>
+            <p>' . $item['nom'] . '</p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+    </div>
+</div>
+</div>';
+
+
+                                // ==============================================================================
+
+
+
                                 echo '<div class="admin-list-element">';
                                 echo '<p>' . $item['nom'] . '</p>';
 
@@ -136,8 +225,8 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
                                 echo '<div class="boutons">
                                 <a class="btn-voir" type="button" data-toggle="modal" data-target="#modal-voir-item-' . $item['id'] . '"><i class="fas fa-eye"></i>&nbsp; Voir</a>
-                                <a href="" class="btn-modifier" type="button" data-toggle="modal" data-target="#modal-modifier-item-5"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
-                                <a href="" class="btn-supprimer"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
+                                <a href="" class="btn-modifier" type="button" data-toggle="modal" data-target="#modal-modifier-item-' . $item['id'] . '"><i class="fas fa-pen"></i>&nbsp; Modifier</a>
+                                <a href="" class="btn-supprimer" type="button" data-toggle="modal" data-target="#modal-supprimer-item-' . $item['id'] . '"><i class="fas fa-trash"></i>&nbsp; Supprimer</a>
                             </div>';
 
 
@@ -380,89 +469,6 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
     </div>
 
 
-    <!-- Modifier un item -->
-    <div class="modal fade bd-example-modal-lg" id="modal-modifier-item-5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modifier l'item 5</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-                    <?php
-                    $i_id = 5;
-                    $i = null;
-
-                    $sc_id = 0;
-                    $sc = null;
-
-                    $c_id = 0;
-                    $c = null;
-
-                    foreach ($items as $item) {
-                        if ($item['id'] == $i_id) {
-                            $i = $item;
-                            break;
-                        }
-                    }
-
-                    $sc_id = $i['souscategorie'];
-
-                    foreach ($sous_categories as $sous_categorie) {
-                        if ($sous_categorie['id'] == $sc_id) {
-                            $sc = $sous_categorie;
-                            break;
-                        }
-                    }
-
-                    $c_id = $sc['categorie'];
-
-                    foreach ($categories as $categorie) {
-                        if ($categorie['id'] == $c_id) {
-                            $c = $categorie;
-                            break;
-                        }
-                    }
-
-
-                    ?>
-
-                    <p>Catégorie actuelle : <strong><?= $c['nom']; ?></strong></p>
-                    <p>Sous-catégorie actuelle : <strong><?= $sc['nom']; ?></strong></p>
-
-                    <form action="" method="POST">
-                        <div class="form-group">
-                            <label>Choisir une nouvelle sous-catégorie</label>
-                            <select name="ancien-nom-sous-categorie" class="form-control">
-                                <?php
-                                foreach ($categories as $categorie) {
-                                    foreach ($sous_categories as $sous_categorie) {
-                                        if ($sous_categorie['categorie'] == $categorie['id']) {
-                                            echo '<option value="' . $sous_categorie['id'] . '">' . $categorie['nom'] . ' : ' . $sous_categorie['nom'] . '</option>';
-                                        }
-                                    }
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Nouveau nom de l'item</label>
-                            <input name="nouveau-nom-item" type="text" class="form-control" placeholder="Nouveau nom de l'item">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Valider</button>
-                    </form>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 <?php
 }
