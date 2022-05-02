@@ -98,15 +98,17 @@ main {
 }
 
 .red {
+    /* display: inline-block; */
     background-color: #9D0208;
     width: auto;
-    height: 400px;
-    overflow: auto;
+    /* height: 400px; */
+    padding: 5%;
+    /* overflow: hidden; */
 }
 
 .maps {
     background-color: white;
-    margin: 5%;
+    /* margin: 5%; */
     box-shadow: 10px 10px 0px 0px #022445;
 }
 
@@ -114,7 +116,7 @@ main {
     position: relative;
     align-items: center;
     text-align: center;
-    margin: 10%;
+    /* margin: 10%; */
 }
 
 #TitreBoutique {
@@ -139,7 +141,7 @@ main {
 
 /*Nouveauté*/
 
-h3{
+h3 {
     font-size: 20px;
 }
 
@@ -158,7 +160,7 @@ h3{
     text-shadow: 1px 1px black;
     position: absolute;
     right: 0%;
-    top: 2%;
+    top: 0%;
     padding: 2px 5px;
     font-size: 20px;
     border-radius: 3px;
