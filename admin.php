@@ -43,6 +43,9 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
     if (isset($_POST['ajouter-categorie-nom'])) {
         $c_nom = $_POST['ajouter-categorie-nom'];
         echo 'nom categorie : ' . $c_nom . '<br>';
+
+        $statement = $db->prepare('INSERT INTO categorie (nom) values (?)');
+        $statement->execute(array($c_nom));
     }
 
     if (isset($_POST['modifier-categorie-id']) && isset($_POST['modifier-categorie-nouveau-nom'])) {
@@ -50,11 +53,17 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
         $c_nom = $_POST['modifier-categorie-nouveau-nom'];
         echo 'id categorie : ' . $c_id . '<br>';
         echo 'catégorie nouveau nom : ' . $c_nom . '<br>';
+
+        $statement = $db->prepare('UPDATE categorie set nom = ? WHERE id = ?');
+        $statement->execute(array($c_nom, $c_id));
     }
 
     if (isset($_POST['supprimer-categorie-id'])) {
         $c_id = $_POST['supprimer-categorie-id'];
         echo 'id categorie : ' . $c_id . '<br>';
+
+        $statement = $db->prepare('DELETE FROM categorie WHERE id = ?');
+        $statement->execute(array($c_id));
     }
 
     if (isset($_POST['ajouter-sous-categorie-id-categorie']) && isset($_POST['ajouter-sous-categorie-nom'])) {
@@ -62,6 +71,9 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
         $sc_nom = $_POST['ajouter-sous-categorie-nom'];
         echo 'id categorie : ' . $c_id . '<br>';
         echo 'sous-catégorie nouveau nom : ' . $sc_nom . '<br>';
+
+        $statement = $db->prepare('INSERT INTO souscategorie (nom, categorie) values (?,?)');
+        $statement->execute(array($sc_nom, $c_id));
     }
 
     if (isset($_POST['modifier-sous-categorie-id']) && isset($_POST['modifier-sous-categorie-id-categorie']) && isset($_POST['modifier-sous-categorie-nouveau-nom'])) {
@@ -71,10 +83,17 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
         echo 'id sous-categorie : ' . $sc_id . '<br>';
         echo 'id categorie : ' . $c_id . '<br>';
         echo 'nouveau nom sous-catégorie : ' . $sc_nom . '<br>';
+
+        $statement = $db->prepare('UPDATE souscategorie set nom = ?, categorie = ? WHERE id = ?');
+        $statement->execute(array($sc_nom, $c_id, $sc_id));
     }
 
     if (isset($_POST['supprimer-sous-categorie-id'])) {
-        echo 'id sous-categorie : ' . $_POST['supprimer-sous-categorie-id'] . '<br>';
+        $sc_id = $_POST['supprimer-sous-categorie-id'];
+        echo 'id sous-categorie : ' . $sc_id . '<br>';
+
+        $statement = $db->prepare('DELETE FROM souscategorie WHERE id = ?');
+        $statement->execute(array($sc_id));
     }
 
 
