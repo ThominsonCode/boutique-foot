@@ -74,7 +74,7 @@ if (isset($_POST['ajouter-item-id'])) {
                 <input type="hidden" name="ajouter-item-id" value="' . $item['id'] . '">
             </div>
 
-            <button width="200px;" height="200px;" type="submit" class="btn btn-outline-danger">Ajouter au panier</button>
+            <button style="width:150px; height:50px;" type="submit" class="btn btn-outline-danger">Ajouter au panier</button>
         </form>
                         </div>
                     </div>
@@ -134,7 +134,7 @@ if (isset($_POST['ajouter-item-id'])) {
                 <input type="hidden" name="ajouter-item-id" value="' . $item['id'] . '">
             </div>
 
-            <button width="200px;" height="200px;" type="submit" class="btn btn-outline-danger">Ajouter au panier</button>
+            <button style="width:150px; height:50px;" type="submit" class="btn btn-outline-danger">Ajouter au panier</button>
         </form>
                     </div>
                 </div>
