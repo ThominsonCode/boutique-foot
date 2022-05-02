@@ -56,11 +56,10 @@ $items = $statement->fetchAll();
                         ?>
                     </a>
                     <div style="background: red;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                        <a style="text-align: center;" class="dropdown-item" role="button">Déconnexion</a>
-                        <?php
-                        unset($_SESSION['uid']);
-                        unset($_SESSION['user']);
-                        ?>
+                        <a href="deconnexion.php" style="text-align: center;" class="dropdown-item" role="button">Déconnexion</a>
+
+
+
                     </div>
                 </div>
             </div>
