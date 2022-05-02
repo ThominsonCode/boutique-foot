@@ -132,7 +132,10 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
 
     $statement = $db->query('SELECT * FROM categorie');
     $categories = $statement->fetchAll();
-
+    $statement = $db->query('SELECT * FROM souscategorie');
+    $sous_categories = $statement->fetchAll();
+    $statement = $db->query('SELECT * FROM item');
+    $items = $statement->fetchAll();
 
     ?>
 
@@ -147,7 +150,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
                 <div class="list-group" id="list-tab">
                     <?php
                     foreach ($categories as $categorie) {
-                        if ($categorie['id'] == 0) {
+                        if ($categorie['id'] == 1) {
                             echo '<button data-toggle="list" href="#categorie-' . $categorie['id'] . '" type="button" class="btn-admin active"><span>' . $categorie['nom'] . '</span></button>';
                         } else {
                             echo '<button data-toggle="list" href="#categorie-' . $categorie['id'] . '" type="button" class="btn-admin"><span>' . $categorie['nom'] . '</span></button>';
@@ -163,7 +166,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
                 <div class="tab-content liste-sous-categories">
                     <?php
                     foreach ($categories as $categorie) {
-                        if ($categorie['id'] == 0) {
+                        if ($categorie['id'] == 1) {
                             echo '<div id="categorie-' . $categorie['id'] . '" class="tab-pane fade show active">';
                         } else {
                             echo '<div id="categorie-' . $categorie['id'] . '" class="tab-pane fade show">';
@@ -171,7 +174,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
                         echo '<div class="list-group">';
                         foreach ($sous_categories as $sous_categorie) {
                             if ($sous_categorie['categorie'] == $categorie['id']) {
-                                if ($sous_categorie['id'] == 0) {
+                                if ($sous_categorie['id'] == 1) {
                                     echo '<button data-toggle="list" href="#sous-categorie-' . $sous_categorie['id'] . '" type="button" class="btn-admin active"><span>' . $sous_categorie['nom'] . '</span></button>';
                                 } else {
                                     echo '<button data-toggle="list" href="#sous-categorie-' . $sous_categorie['id'] . '" type="button" class="btn-admin"><span>' . $sous_categorie['nom'] . '</span></button>';
@@ -204,14 +207,14 @@ if (isset($_SESSION['user']) && $_SESSION['user'] == 'administrateur') {
 
                     <?php
                     foreach ($sous_categories as $sous_categorie) {
-                        if ($sous_categorie['id'] == 0) {
+                        if ($sous_categorie['id'] == 1) {
                             echo '<div id="sous-categorie-' . $sous_categorie['id'] . '" class="tab-pane fade show active">';
                         } else {
                             echo '<div id="sous-categorie-' . $sous_categorie['id'] . '" class="tab-pane fade show">';
                         }
 
                         foreach ($items as $item) {
-                            if ($item['sous-categorie'] == $sous_categorie['id']) {
+                            if ($item['souscategorie'] == $sous_categorie['id']) {
                                 echo '<div class="admin-list-element">';
                                 echo '<p>' . $item['nom'] . '</p>';
 
