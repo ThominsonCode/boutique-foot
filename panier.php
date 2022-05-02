@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 $css_sheet2 = "panierstyle";
 $css_sheet = "style";
@@ -15,3 +16,5 @@ require("common/navbar.php");
 
 <?php require('common/footer.php') ?>
 
+=======
+>>>>>>> eafe5fa714d26fffcd381daefaef8c31e1f474cb
