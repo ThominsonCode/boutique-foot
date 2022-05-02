@@ -7,43 +7,70 @@ require("common/navbar.php");
 if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
 
     if (isset($_POST['ajouter-item-id-sous-categorie']) && isset($_POST['ajouter-item-nom']) && isset($_POST['ajouter-item-prix'])) {
-        echo 'id sous-categorie : ' . $_POST['ajouter-item-id-sous-categorie'] . '<br>';
-        echo 'nom item : ' . $_POST['ajouter-item-nom'] . '<br>';
-        echo 'prix : ' . $_POST['ajouter-item-prix'] . '<br>';
+        $sc_id = $_POST['ajouter-item-id-sous-categorie'];
+        $item_nom = $_POST['ajouter-item-nom'];
+        $item_prix = $_POST['ajouter-item-prix'];
+        echo 'id sous-categorie : ' . $sc_id . '<br>';
+        echo 'nom item : ' . $item_nom . '<br>';
+        echo 'prix : ' . $item_prix . '<br>';
+
+        $statement = $db->prepare('INSERT INTO item (nom, prix, souscategorie, image) values (?,?,?,?)');
+        $statement->execute(array($item_nom, $item_prix, $sc_id, 'casquette1.png'));
     }
 
-    if (isset($_POST['modifier-item-id']) && isset($_POST['modifier-item-id-sous-categorie']) && isset($_POST['modifier-item-nouveau-nom'])) {
-        echo 'id item : ' . $_POST['modifier-item-id'] . '<br>';
-        echo 'id sous-categorie : ' . $_POST['modifier-item-id-sous-categorie'] . '<br>';
-        echo 'nouveau nom : ' . $_POST['modifier-item-nouveau-nom'] . '<br>';
+    if (isset($_POST['modifier-item-id']) && isset($_POST['modifier-item-id-sous-categorie']) && isset($_POST['modifier-item-nouveau-nom']) && isset($_POST['modifier-item-nouveau-prix'])) {
+        $item_id = $_POST['modifier-item-id'];
+        $sc_id = $_POST['modifier-item-id-sous-categorie'];
+        $item_nom = $_POST['modifier-item-nouveau-nom'];
+        $item_prix = $_POST['modifier-item-nouveau-prix'];
+        echo 'id item : ' . $item_id . '<br>';
+        echo 'id sous-categorie : ' . $sc_id . '<br>';
+        echo 'nouveau nom : ' . $item_nom . '<br>';
+        echo 'nouveau prix : ' . $item_prix . '<br>';
+
+        $statement = $db->prepare('UPDATE item set nom = ?, souscategorie = ?, prix= ? WHERE id = ?');
+        $statement->execute(array($item_nom, $sc_id, $item_prix, $item_id));
     }
 
     if (isset($_POST['supprimer-item-id'])) {
-        echo 'id item : ' . $_POST['supprimer-item-id'] . '<br>';
+        $item_id = $_POST['supprimer-item-id'];
+        echo 'id item : ' . $item_id . '<br>';
+
+        $statement = $db->prepare('DELETE FROM item WHERE id = ?');
+        $statement->execute(array($item_id));
     }
 
     if (isset($_POST['ajouter-categorie-nom'])) {
-        echo 'nom categorie : ' . $_POST['ajouter-categorie-nom'] . '<br>';
+        $c_nom = $_POST['ajouter-categorie-nom'];
+        echo 'nom categorie : ' . $c_nom . '<br>';
     }
 
     if (isset($_POST['modifier-categorie-id']) && isset($_POST['modifier-categorie-nouveau-nom'])) {
-        echo 'id categorie : ' . $_POST['modifier-categorie-id'] . '<br>';
-        echo 'catégorie nouveau nom : ' . $_POST['modifier-categorie-nouveau-nom'] . '<br>';
+        $c_id = $_POST['modifier-categorie-id'];
+        $c_nom = $_POST['modifier-categorie-nouveau-nom'];
+        echo 'id categorie : ' . $c_id . '<br>';
+        echo 'catégorie nouveau nom : ' . $c_nom . '<br>';
     }
 
     if (isset($_POST['supprimer-categorie-id'])) {
-        echo 'id categorie : ' . $_POST['supprimer-categorie-id'] . '<br>';
+        $c_id = $_POST['supprimer-categorie-id'];
+        echo 'id categorie : ' . $c_id . '<br>';
     }
 
     if (isset($_POST['ajouter-sous-categorie-id-categorie']) && isset($_POST['ajouter-sous-categorie-nom'])) {
-        echo 'id categorie : ' . $_POST['ajouter-sous-categorie-id-categorie'] . '<br>';
-        echo 'sous-catégorie nouveau nom : ' . $_POST['ajouter-sous-categorie-nom'] . '<br>';
+        $c_id = $_POST['ajouter-sous-categorie-id-categorie'];
+        $sc_nom = $_POST['ajouter-sous-categorie-nom'];
+        echo 'id categorie : ' . $c_id . '<br>';
+        echo 'sous-catégorie nouveau nom : ' . $sc_nom . '<br>';
     }
 
     if (isset($_POST['modifier-sous-categorie-id']) && isset($_POST['modifier-sous-categorie-id-categorie']) && isset($_POST['modifier-sous-categorie-nouveau-nom'])) {
-        echo 'id sous-categorie : ' . $_POST['modifier-sous-categorie-id'] . '<br>';
-        echo 'id categorie : ' . $_POST['modifier-sous-categorie-id-categorie'] . '<br>';
-        echo 'nouveau nom sous-catégorie : ' . $_POST['modifier-sous-categorie-nouveau-nom'] . '<br>';
+        $sc_id = $_POST['modifier-sous-categorie-id'];
+        $c_id = $_POST['modifier-sous-categorie-id-categorie'];
+        $sc_nom = $_POST['modifier-sous-categorie-nouveau-nom'];
+        echo 'id sous-categorie : ' . $sc_id . '<br>';
+        echo 'id categorie : ' . $c_id . '<br>';
+        echo 'nouveau nom sous-catégorie : ' . $sc_nom . '<br>';
     }
 
     if (isset($_POST['supprimer-sous-categorie-id'])) {
@@ -224,6 +251,10 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                                                 <div class="form-group">
                                                     <label>Nouveau nom de l\'item</label>
                                                     <input name="modifier-item-nouveau-nom" type="text" class="form-control" placeholder="Nouveau nom de l\'item">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Nouveau prix de l\'item</label>
+                                                    <input name="modifier-item-nouveau-prix" type="number" step=0.01 class="form-control" placeholder="Nouveau prix de l\'item">
                                                 </div>
                                                 <input type="hidden" name="modifier-item-id" value="' . $item['id'] . '">
                         
@@ -574,7 +605,7 @@ if (isset($_SESSION['uid']) && $_SESSION['uid'] == 35) {
                         </div>
                         <div class="form-group">
                             <label>Prix</label>
-                            <input name="ajouter-item-prix" type="text" class="form-control" placeholder="Nom de la sous-catégorie">
+                            <input name="ajouter-item-prix" type="number" step=0.01 class="form-control" placeholder="Nom de la sous-catégorie">
                         </div>
                         <button type="submit" class="btn btn-primary">Valider</button>
                     </form>
