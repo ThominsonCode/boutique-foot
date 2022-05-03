@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    
+$(document).ready(function () {
+
     var $inscription_prenom = $('#inscription_prenom'),
         $inscription_nom = $('#inscription_nom'),
         $inscription_email = $('#inscription_email'),
@@ -12,105 +12,105 @@ $(document).ready(function(){
         $reset = $('#reset'),
         $erreur = $('#erreur'),
         $bravo = $('#bravo');
-        $validite = true; //Je déclare une variable qui restera vrai sans aucune
-                          //erreur mais elle passera à faux dès la première erreur
-    
-    function valide($validation){ //J'ai créé une fonction qui est appelée lorsque que la réponse correspond aux attentes.
+    $validite = true; //Je déclare une variable qui restera vrai sans aucune
+    //erreur mais elle passera à faux dès la première erreur
+
+    function valide($validation) { //J'ai créé une fonction qui est appelée lorsque que la réponse correspond aux attentes.
         $validation.css({
-            borderColor : 'green',
-            color : 'green'
+            borderColor: 'green',
+            color: 'green'
         });
         $validation.next().css("display", "none");
     }
 
-    function pas_valide($non_validation){ //J'ai créé une fonction qui est appelée lorsque que la réponse ne correspond pas aux attentes.
+    function pas_valide($non_validation) { //J'ai créé une fonction qui est appelée lorsque que la réponse ne correspond pas aux attentes.
         $non_validation.css({
-            borderColor : 'red',
-            color : 'red'
+            borderColor: 'red',
+            color: 'red'
         });
         $non_validation.next().css("display", "block");
     }
 
-    $inscription_prenom.keyup(function(){  
-        if(/[a-zA-Z]+$/.test($inscription_prenom.val()))
+    $inscription_prenom.keyup(function () {
+        if (/^[a-zA-Z]+$/.test($inscription_prenom.val()))
             valide($(this));
-        else{
+        else {
             $validite = false;
             pas_valide($(this));
         }
     });
 
-    $inscription_nom.keyup(function(){  
-        if(/[a-zA-Z]+$/.test($inscription_nom.val()))
+    $inscription_nom.keyup(function () {
+        if (/^[a-zA-Z]+$/.test($inscription_nom.val()))
             valide($(this));
-        else{
+        else {
             $validite = false;
             pas_valide($(this));
         }
     });
 
-    $inscription_email.keyup(function(){  
-        if(/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/.test($inscription_email.val()))
+    $inscription_email.keyup(function () {
+        if (/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/.test($inscription_email.val()))
             valide($(this));
-        else{
-            $validite = false;
-            pas_valide($(this));
-        }
-    });
-    
-    $inscription_mdp.keyup(function(){  
-        if(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,16}$/.test($inscription_mdp.val()))
-            valide($(this));
-        else{
+        else {
             $validite = false;
             pas_valide($(this));
         }
     });
 
-    $inscription_confirmation_mdp.keyup(function(){
-        if($(this).val() == $inscription_mdp.val())
+    $inscription_mdp.keyup(function () {
+        if (/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).{8,16}$/.test($inscription_mdp.val()))
             valide($(this));
-        else{
+        else {
             $validite = false;
             pas_valide($(this));
         }
     });
 
-    $inscription_code_postal.keyup(function(){  
-        if(/[0-9-()+]{5,5}/.test($inscription_code_postal.val()))
+    $inscription_confirmation_mdp.keyup(function () {
+        if ($(this).val() == $inscription_mdp.val())
             valide($(this));
-        else{
+        else {
             $validite = false;
             pas_valide($(this));
         }
     });
 
-    $inscription_ville.keyup(function(){  
-        if(/[a-zA-Z]+$/.test($inscription_ville.val()))
+    $inscription_code_postal.keyup(function () {
+        if (/^[0-9-()+]{5,5}$/.test($inscription_code_postal.val()))
             valide($(this));
-        else{
+        else {
             $validite = false;
             pas_valide($(this));
         }
     });
 
-    $inscription_telephone.keyup(function(){  
-        if( /[0-9-()+]{10,10}/.test($inscription_telephone.val()))
+    $inscription_ville.keyup(function () {
+        if (/^[a-zA-Z]+$/.test($inscription_ville.val()))
             valide($(this));
-        else{
+        else {
             $validite = false;
             pas_valide($(this));
         }
     });
 
-    function verifier(champ){
-        if(champ.val() == ""){
+    $inscription_telephone.keyup(function () {
+        if (/^[0-9-()+]{10,10}$/.test($inscription_telephone.val()))
+            valide($(this));
+        else {
+            $validite = false;
+            pas_valide($(this));
+        }
+    });
+
+    function verifier(champ) {
+        if (champ.val() == "") {
             $validite = false;
             pas_valide($(this));
         }
     }
-    
-    $envoi.click(function(e){
+
+    $envoi.click(function (e) {
         e.preventDefault(); // on annule la fonction par défaut du bouton d'envoi
 
         verifier($inscription_prenom);
@@ -121,19 +121,19 @@ $(document).ready(function(){
         verifier($inscription_code_postal);
         verifier($inscription_ville);
         verifier($inscription_telephone);
-        if($validite == true){
+        if ($validite == true) {
             $erreur.css('display', 'none');
             $bravo.css('display', 'block');
         }
         else
             $erreur.css('display', 'block');
-        
+
     });
 
-    $reset.click(function(){
+    $reset.click(function () {
         $champ.css({ // on remet le style des champs comme on l'avait défini dans le style CSS
-            borderColor : 'grey',
-            color : '#555'
+            borderColor: 'grey',
+            color: '#555'
         });
         $erreur.css('display', 'none');
         $bravo.css('display', 'none');
