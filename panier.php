@@ -21,7 +21,7 @@ if (isset($_POST['supprimer-item-id'])) {
     $statement->execute(array($_POST['supprimer-item-id'], $_SESSION['uid']));
 }
 
-
+require_once("common/navbar.php");
 $user = null;
 if (isset($_SESSION['uid'])) {
     foreach ($users as $a_user) {
@@ -30,7 +30,7 @@ if (isset($_SESSION['uid'])) {
         }
     }
 
-    require("common/navbar.php");
+    // require_once("common/navbar.php");
 
 ?>
     <h1>Bonjour <?= $user['nom']; ?></h1>
