@@ -35,7 +35,6 @@ if (isset($_SESSION['uid'])) {
         }
     }
 
-    require_once("common/navbar.php");
 
 ?>
     <h1>Bonjour <?= $user['nom']; ?></h1>
