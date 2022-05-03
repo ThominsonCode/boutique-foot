@@ -75,7 +75,7 @@ require("common/navbar.php");
                         </div>
                         <div class="caption">
                             <a href="#">
-                                <h3 style="text-transform : uppercase;" style="font-size: 100%;">' . $item['nom'] . '</h3>
+                                <h3 style="text-transform : uppercase; margin-top:20px; margin-right:10px; width:180px; font-size: 100%;">' . $item['nom'] . '</h3>
                             </a>
                             <form action="" method="POST">
             <div class="form-group">
@@ -136,7 +136,7 @@ require("common/navbar.php");
                     </div>
                     <div class="caption">
                         <a href="#">
-                            <h3 style="text-transform : uppercase;" style="font-size: 100%;">' . $item['nom'] . '</h3>
+                            <h3 style="text-transform : uppercase; width:180px; margin-top:20px; font-size: 100%;">' . $item['nom'] . '</h3>
                         </a>
                         
                         <form action="" method="POST">
