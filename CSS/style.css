@@ -41,7 +41,7 @@ main {
 
 .circle-panier {
     background: blue;
-    border-radius: 26px;
+    border-radius: 261px;
     color: white;
     height: 26px;
     font-weight: bold;
@@ -221,4 +221,28 @@ footer p {
 a {
     text-decoration: none;
     color: black;
+}
+
+th {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tbody {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+tfoot {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
 }

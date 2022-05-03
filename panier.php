@@ -21,6 +21,11 @@ if (isset($_POST['supprimer-item-id'])) {
     $statement->execute(array($_POST['supprimer-item-id'], $_SESSION['uid']));
 }
 
+if (isset($_POST['supprimer-tous-item'])) {
+    $statement = $db->query('DELETE FROM `historique` WHERE user=' . $_SESSION['uid'] . '');
+}
+
+require_once("common/navbar.php");
 
 $user = null;
 if (isset($_SESSION['uid'])) {
@@ -30,7 +35,7 @@ if (isset($_SESSION['uid'])) {
         }
     }
 
-    require("common/navbar.php");
+    require_once("common/navbar.php");
 
 ?>
     <h1>Bonjour <?= $user['nom']; ?></h1>
@@ -46,28 +51,68 @@ if (isset($_SESSION['uid'])) {
 
     // var_dump($items);
 
-    foreach ($items as $item) {
-        $statement = $db->prepare('SELECT * FROM item WHERE id = ?');
-        $statement->execute(array($item['item']));
-        $item = $statement->fetch();
-        echo '<hr><img width="200px;" height="200px;" src="image/' . $item['image'] . '">
-                <h4>Prix : ' . number_format($item['prix'], 2, '.', '') . ' €</h4>
-                <h3>' . $item['nom'] . '</h3>';
     ?>
-        <form action="" method="POST">
-            <div class="form-group">
-                <?php echo '<input type="hidden" name="supprimer-item-id" value="' . $item['id'] . '">'; ?>
-            </div>
+    <div style="margin-bottom:30px; width:100%; display:flex; justify-content:center;">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Image du produit</th>
+                    <th>Nom du produit</th>
+                    <th>Prix du produit</th>
+                    <th>Supprimer</th>
+                </tr>
+                <?php
+                foreach ($items as $item) {
+                    $statement = $db->prepare('SELECT * FROM item WHERE id = ?');
+                    $statement->execute(array($item['item']));
+                    $item = $statement->fetch();
 
-            <button type="submit" class="btn btn-outline-danger">Supprimer</button>
-        </form>
+                    echo '
+                    <tr>       
+                        <td><img style="width: 50px;" src="image/' . $item['image'] . '"></td>
+                        <td>' . $item['nom'] . '</td>
+                        <td>' .  number_format($item['prix'], 2, '.', '') . ' €</td>
+                        <td>  
+                            <form action="" method="POST">
+                                <div class="form-group">
+                                    <input type="hidden" name="supprimer-item-id" value="' . $item['id'] . '">
+                            </div>
+                            <button type="submit" class="btn btn-outline-danger">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>';
+                }
+                ?>
+            </tbody>
+            <tfoot>
+                <th style="text-align: center;" colspan="2">Prix Total</th>
+                <?php
+                $statement = $db->query('SELECT prix, SUM(prix) FROM item INNER JOIN historique ON item.id = historique.item WHERE user=' . $_SESSION['uid'] . '');
+                $prix_total = $statement->fetch();
+                echo '
+                <td>' . number_format($prix_total[1], 2, '.', '') . ' €</td>
+                ';
+                ?>
+                <td>
+                    <?php
+                    echo
+                    '<form action="" method="POST">
+                        <div class="form-group">
+                            <input type="hidden" name="supprimer-tous-item" value="' . $_SESSION['uid'] . '">
+                        </div>
+                        <button type="submit" class="btn btn-outline-danger">Tout supprimer</button>
+                    </form>';
+                    echo '
+                </td>';
+                    ?>
+            </tfoot>
+        </table>
+    </div>
 
-    <?php
-    }
-} else {
-    ?>
-    <h1 style="margin: 50px 50px;">Vous devez être connecté pour voir cette page. <br> Veuillez vous connecter.</h1>
-    <div style="display: block; height:400px"></div>
+
+
+
 <?php
 }
+
 require('common/footer.php') ?>
