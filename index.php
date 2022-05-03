@@ -3,10 +3,9 @@
 $css_sheet = "style";
 require('common/header.php');
 
-require("common/navbar.php");
 if (isset($_POST['ajouter-item-id'])) {
     if (isset($_SESSION['uid'])) {
-        echo 'AJOUTER un item du panier <br>';
+        // echo '<script>alert("Vous avez ajoutés un item dans le panier");</script>';
         // echo 'item id : ' . $_POST['ajouter-item-id'];
         // echo 'vous etes : ' . $_SESSION['uid'];
         $statement = $db->prepare('INSERT INTO historique (user, item) values (?,?)');
@@ -16,7 +15,7 @@ if (isset($_POST['ajouter-item-id'])) {
     }
 }
 
-
+require("common/navbar.php");
 
 ?>
 

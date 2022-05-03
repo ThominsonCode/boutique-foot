@@ -2,7 +2,6 @@
 $css_sheet2 = "panierstyle";
 $css_sheet = "style";
 require('common/header.php');
-require("common/navbar.php");
 
 $statement = $db->query('SELECT * FROM categorie');
 $categories = $statement->fetchAll();
@@ -16,8 +15,8 @@ $statement = $db->query('SELECT * FROM historique');
 $commandes = $statement->fetchAll();
 
 if (isset($_POST['supprimer-item-id'])) {
-    echo 'SUPPRIMER un item du panier <br>';
-    echo 'item id : ' . $_POST['supprimer-item-id'];
+    // echo 'SUPPRIMER un item du panier <br>';
+    // echo 'item id : ' . $_POST['supprimer-item-id'];
     $statement = $db->prepare('DELETE FROM historique WHERE item = ? AND user = ?');
     $statement->execute(array($_POST['supprimer-item-id'], $_SESSION['uid']));
 }
@@ -30,6 +29,9 @@ if (isset($_SESSION['uid'])) {
             $user = $a_user;
         }
     }
+
+    require("common/navbar.php");
+
 ?>
     <h1>Bonjour <?= $user['nom']; ?></h1>
     <h3>Voici votre panier : <br><br></h3>
@@ -68,5 +70,4 @@ if (isset($_SESSION['uid'])) {
     <div style="display: block; height:400px"></div>
 <?php
 }
-
 require('common/footer.php') ?>

@@ -18,7 +18,7 @@ body {
 
 .nav-icons {
     /* margin-right: 50px; */
-    width: 100px;
+    width: 140px;
     display: flex;
     justify-content: space-between;
 }
@@ -38,10 +38,24 @@ body {
     display: table;
 }
 
+.circle-panier {
+    background: blue;
+    border-radius: 261px;
+    color: white;
+    height: 26px;
+    font-weight: bold;
+    width: 26px;
+    display: table;
+    margin-left: -80%;
+    margin-top: -50%;
+}
+
 .circle p {
+    flex-direction: column;
     vertical-align: middle;
     display: table-cell;
 }
+
 
 a {
     text-decoration: none;

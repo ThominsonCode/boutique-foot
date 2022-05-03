@@ -9,6 +9,13 @@ $statement = $db->query('SELECT * FROM souscategorie');
 $sous_categories = $statement->fetchAll();
 $statement = $db->query('SELECT * FROM item');
 $items = $statement->fetchAll();
+if (isset($_SESSION['uid'])) {
+    $statement = $db->query('SELECT COUNT(*) FROM historique WHERE user = ' . $_SESSION['uid'] . '');
+    $compteur = $statement->fetch();
+    $compteur = $compteur[0];
+} else {
+    $compteur = 0;
+}
 ?>
 
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
@@ -55,15 +62,22 @@ $items = $statement->fetchAll();
                             echo '<p style="text-transform : uppercase;"> <img src="image/vide.png" alt="vide"> </p>';
                         ?>
                     </a>
-                    <div style="background: red;" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                        <a href="deconnexion.php" style="text-align: center;" class="dropdown-item" role="button">Déconnexion</a>
-
-
-
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                        <a style="background: #00BFFF;" href="profil.php" style="text-align: center;" class="dropdown-item" role="button">Voir le profil</a>
+                        <a style="background: red ;" href="deconnexion.php" style="text-align: center;" class="dropdown-item" role="button">Déconnexion</a>
                     </div>
                 </div>
             </div>
         </div>
         <a href="panier.php"><i class="fas fa-cart-shopping fa-2x" style="color: black;"></i></a>
+        <div class="block">
+            <div class="circle-panier">
+                <a role="button" data-toggle="dropdown">
+                    <?php
+                    echo $compteur;
+                    ?>
+                </a>
+            </div>
+        </div>
     </div>
 </nav>
